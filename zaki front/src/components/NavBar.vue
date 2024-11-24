@@ -54,6 +54,7 @@ display: flex;
 justify-content: space-between;
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 border-bottom: 1px solid gray;
+background: white;
 }
 
 .nav__logo a {
