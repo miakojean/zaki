@@ -124,7 +124,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 3rem 1rem;
+    padding: 3rem 0 0 0;
     text-align: center;
     /*border: 1px solid gray;*/
 }
@@ -132,7 +132,6 @@ header {
 .header__container {
     text-align: center;
     /*border: 1px solid gray;*/
-    padding: 1rem;
 }
 
 .header__img img {
