@@ -12,7 +12,7 @@ export default {
 button{
   cursor: pointer;
   font-size: 1rem;
-  background: #104710;
+  background: #191e92ff;
   color: white;
   border: none;
   border-radius: 1rem;
@@ -22,6 +22,6 @@ button{
 }
 
 button:hover{
-    background: #408d40;
+    background: #38369aff;
 }
 </style>

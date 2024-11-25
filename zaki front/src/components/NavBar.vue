@@ -40,8 +40,14 @@ export default {
 }
 
 :root{
-    --primary--color: #139713;
-    --secondary--color: #ffff00 ;
+    /* CSS HEX */
+  --tea-green: #c6ebbeff;
+  --celadon: #a9dbb8ff;
+  --air-superiority-blue: #7ca5b8ff;
+  --secondary--color: #38369aff;
+  --resolution-blue: #1d1f91ff;
+  --primary--color: #020887ff;
+  --resolution-blue-2: #191e92ff;
 }
 
 nav {
@@ -60,7 +66,7 @@ background: white;
 .nav__logo a {
 font-size: 1.5rem;
 font-weight: 800;
-color: var(--primary--color);
+color: var(--secondary--color);
 }
 
 .nav__links {
@@ -122,7 +128,7 @@ color: var(--white);
 
 .nav__menu__btn {
 font-size: 1.5rem;
-color: var(--text-dark);
+color: var(--air-superiority-blue);
 cursor: pointer;
 }
 

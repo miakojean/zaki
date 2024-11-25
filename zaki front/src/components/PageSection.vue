@@ -1,9 +1,10 @@
 <template>
     <section>
         <header>
-            <h1> Nos produits </h1>
+            <h2> Nos produits </h2>
             <p> Découvrez ci-dessous les différentes catégories des produits proposés </p>
         </header>
+        <div class="custom-head-divider"></div>
         <div class="card__container">
             <div class="cards">
                 <h3>Céréales et Grains</h3>
@@ -24,10 +25,16 @@
                 <MoreButton />
             </div>
             <div class="cards">
-                <h3>Produits transformés locaux</h3>
+                <h3>Produits transformés</h3>
                 <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
-                <p>Attiéké, poudre de piment, huile rouge, Djoumgblé, etc.</p>
+                <p>Attiéké, huile rouge, Djoumgblé, etc.</p>
                 <MoreButton />
+            </div>
+            <div class="cards">
+                <h3>Autres produits</h3>
+                <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
+                <p>Découvrez tous nos produits ici.</p>
+                <MoreButton label = "Tous nos produits" />
             </div>
         </div>
     </section>
@@ -72,14 +79,23 @@ box-sizing: border-box;
 
 }
 
-*:root{
+:root{
     /* CSS HEX */
---mint-green: rgb(65, 92, 90);
---fluorescent-cyan: #52ffeeff;
---mint: #4fb477ff;
---hunter-green: #3f6634ff;
---dark-moss-green: #345511ff;
---text-color : #071d08;
+  --tea-green: #c6ebbeff;
+  --celadon: #a9dbb8ff;
+  --air-superiority-blue: #7ca5b8ff;
+  --secondary--color: #38369aff;
+  --resolution-blue: #1d1f91ff;
+  --primary--color: #020887ff;
+  --resolution-blue-2: #191e92ff;
+}
+
+.section-divider {
+    border: none; /* Supprime la bordure par défaut */
+    height: 2px; /* Définit l'épaisseur de la ligne */
+    background-color: gray; /* Couleur de la ligne */
+    margin: 2rem 0; /* Espace autour de la ligne */
+    opacity: 0.7; /* Transparence */
 }
 
 a {
@@ -91,15 +107,15 @@ h1{
     font-size: clamp(2.5rem, 4vw, 3rem); 
     text-align: center;
     font-weight: 700;
-    color: var(--dark-moss-green);
+    color: var(--primary--color);
 }
 
 h3{
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1.5rem, 3vw, 2rem); 
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem); 
     text-align: start;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--air-superiority-blue);
 }
 
 p{
@@ -109,6 +125,15 @@ p{
     font-weight: 600;
     line-height: 1.5;
     color: gray;
+}
+
+header p{
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.25rem); 
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #071d08;
 }
 
 section{

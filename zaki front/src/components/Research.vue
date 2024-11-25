@@ -30,12 +30,16 @@ label{
     border: none;
     background: none;
 }
+.Research:hover{
+    background: none;
+    color: #020887ff;
+}
 
-i{
+.Research i {
     font-size: 1.5rem;
     cursor: pointer;
     font-weight: 600;
-    color: var(--dark-moss-green);
+    color: #020887ff;
 }
 
 input{
