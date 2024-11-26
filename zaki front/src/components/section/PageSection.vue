@@ -2,7 +2,9 @@
     <section>
         <header>
             <h2> Nos produits </h2>
-            <p> Découvrez ci-dessous les différentes catégories des produits proposés </p>
+            <h3>
+                Découvrer ci-dessous les différentes catégories de produits
+            </h3>
         </header>
         <div class="custom-head-divider"></div>
         <div class="card__container">
@@ -79,17 +81,6 @@ export default {
     opacity: 0.7; /* Transparence */
 }
 
-
-
-header p{
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.25rem); 
-    text-align: center;
-    font-weight: 600;
-    line-height: 1.5;
-    color: #071d08;
-}
-
 section{
     padding: 1rem;
 }
@@ -133,7 +124,7 @@ header{
         grid-area: 1rem;
     }
     img{
-        width:80%;
+        width:100%;
     }
     
 }
@@ -146,7 +137,15 @@ header{
         grid-area: 1rem;
     }
     img{
-        width:80%;
+        width:100%;
+    }
+    .cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
     }
 }
 </style>

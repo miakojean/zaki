@@ -1,7 +1,7 @@
 <template>
     <form action="#" method="post">
         <label for="Research" class="">
-            <input id="Research" type="text" placeholder="Trouver mon produit, ex: manioc, charbon.">
+            <input id="Research" type="text" placeholder="Trouver mon produit, ex: manioc, charbon, apki.">
             <button class="Research">
                 <i class="ri-search-line"></i>
             </button>
@@ -16,6 +16,9 @@ export default {
 </script>
 
 <style>
+form{
+    width: 100%;
+}
 label{
     padding: 0.3rem;
     display: flex;

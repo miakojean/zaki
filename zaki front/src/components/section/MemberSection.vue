@@ -2,9 +2,9 @@
     <section>
         <header>
             <h2> Devenir partenaire </h2>
-            <p>
+            <h3>
                 Mettez-vous en ligne pour accroitre votre visibilité.
-            </p>
+            </h3>
         </header>
         <div class="custom-head-divider"></div>
         <div class="card___container">
@@ -80,7 +80,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 0.5rem;
 }
 
@@ -98,6 +98,14 @@ header{
         grid-template-columns: 1fr 1fr;
         grid-area: 1rem;
     }
+    .cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    }
     
 }
 
@@ -106,6 +114,15 @@ header{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-area: 1rem;
+    }
+
+    .cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
     }
 }
 </style>

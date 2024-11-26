@@ -23,7 +23,6 @@ export default {
 .MainButton{
   padding: 1rem;
   width: 100%;
-  max-width: 400px;
   background: #058C42;
   border-radius: 1rem;
   color: white;

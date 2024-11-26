@@ -1,32 +1,37 @@
 <template>
     <div class="landing-page">
         <NavBar />
-        <Header />
+        <HeaderSection />
         <div class="custom-divider"></div>
         <PageSection />
         <div class="custom-divider"></div>
         <MemberSection />
         <div class="custom-divider"></div>
         <Newsletter />
+        <div class="custom-divider"></div>
+        <FooterSection />
     </div>
 </template>
 
 <script>
 import NavBar from '@/components/section/NavBar.vue';
-import Header from '@/components/section/Header.vue';
 import PageSection from '@/components/section/PageSection.vue';
 import MemberSection from '@/components/section/MemberSection.vue';
 import TestimonialSection from '@/components/section/TestimonialSection.vue';
 import Newsletter from '@/components/section/Newsletter.vue';
+import HeaderSection from '@/components/section/HeaderSection.vue';
+import FooterSection from '@/components/section/FooterSection.vue';
+
 
 export default {
     components: {
         NavBar,
-        Header,
+        HeaderSection,
         PageSection,
         MemberSection,
         TestimonialSection,
         Newsletter,
+        FooterSection
     },
 };
 </script>

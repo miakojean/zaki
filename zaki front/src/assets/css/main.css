@@ -15,6 +15,7 @@ font-family: 'Inter', sans-serif;
 
   --black--color:#050C08;
   --black--second:#040705;
+  --black--third:#39443e;
 }
 
 
@@ -35,23 +36,30 @@ h1{
 }
 
 h2{
-    font-size: clamp(2rem, 3.5vw, 2.5rem); 
+    font-size: clamp(2.25rem, 3.5vw, 2.375rem); 
     text-align: center;
     font-weight: 700;
     color: var(--primary--color);
 }
 
 h3{
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem); 
-    text-align: start;
+    font-size: clamp(1.4375rem, 1.5vw, 1,5625rem); 
+    text-align: center;
     font-weight: 700;
-    color: var(--tertiary--color);
+    color: var(--black--third);
+}
+
+h4{
+    font-size: clamp(2.25rem, 3.5vw, 2.375rem); 
+    text-align: center;
+    font-weight: 700;
+    color: var(--black--third);; 
 }
 
 p{
-    font-size: clamp(1rem, 1.5vw, 1.25rem); 
+    font-size: clamp(1rem, 1.5vw, 1rem); 
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.5;
-    color: var(--black--second);
+    color: var(--black--third);
 }

@@ -1,16 +1,13 @@
 <template>
     <section>
     <header>
-        <h2> Souscrire à notre newsletter. </h2>
-        <p class="Header__paragraph"> Rester au courant des dernières informations sur 
-            vos principales denrées alimentaires
-        </p>
+        <h2> Newsletter </h2>
     </header>
     <div class="custom-head-divider"></div>
     <div class="Newsletter__Container">
-        <h3>
+        <h4>
             S'abonner à la newsletter pour être au courant de tout concernant le secteur agricole ivoirien.
-        </h3>
+        </h4>
         <div class="Newform">
             <form action="#" method="post">
                 <label for="Email">
@@ -38,7 +35,7 @@ components:{
 .Newsletter__Container{
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     gap: 2rem;
 }
@@ -66,6 +63,10 @@ label i{
         grid-template-columns: 1fr 1fr;
         grid-area: 1rem;
     }
+
+    form{
+        display: flex;
+    }
     
 }
 
@@ -76,5 +77,6 @@ label i{
         grid-area: 1rem;
         align-content: center;
     }
+
 }
 </style>

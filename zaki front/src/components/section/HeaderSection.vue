@@ -9,9 +9,7 @@
                 accéder aux meilleurs produits vivriers de Côte d'Ivoire. 
                 Commandez, payez en ligne, et recevez vos produits directement chez vous.
             </p>
-            <div class="search__input">
-                <Research />
-            </div>
+            <Research />
         </div>
         <div class="header__img">
             <img src="@/assets/famer1.webp" alt="Farmer" />
@@ -57,6 +55,8 @@ header {
 }
 
 .header__container {
+    display: flex;
+    align-items: center;
     text-align: center;
     margin-top: 3rem;
     align-items: center;
@@ -72,6 +72,10 @@ header {
     text-align: center;
 }
 
+.search__input{
+    width: 100%;
+}
+
 /* Media Queries */
 @media (min-width: 768px) {
     
@@ -83,7 +87,12 @@ header {
     }
 
     .header__container {
-        width: 70%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 3rem;
+    align-items: center;
+    /*border: 1px solid gray;*/
     }
 
     .header__img {
@@ -110,6 +119,15 @@ header {
 
     .header__img {
         width: 40%;
+    }
+
+    .header__container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 3rem;
+    justify-content: space-between;
+    /*border: 1px solid gray;*/
     }
 }
 </style>
