@@ -19,7 +19,7 @@
                     accrue pour vos produits, d'un accès à une clientèle diversifiée, et d'un 
                     accompagnement personnalisé pour développer vos activités.
                 </p>
-                <MoreButton label ="Ouvrir mon compte pro" />
+                <MainButton label ="Ouvrir mon compte pro" icon="ri-arrow-right-line" />
             </div>
         </div>
     </section>
@@ -27,11 +27,13 @@
 
 <script>
 import MoreButton from '@/components/MoreButton.vue';
+import MainButton from '../MainButton.vue';
+
 
 export default {
   
   components:{
-    MoreButton
+    MoreButton,MainButton
   }
 }
 </script>

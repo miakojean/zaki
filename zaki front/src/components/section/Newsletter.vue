@@ -14,9 +14,10 @@
         <div class="Newform">
             <form action="#" method="post">
                 <label for="Email">
+                    <i class="ri-mail-line"></i>
                     <input type="email" placeholder="Entrer votre email">
                 </label>
-                <Button label ="Souscrire" />
+                <MainButton label ="Souscrire" />
             </form>
         </div>
     </div>
@@ -24,10 +25,11 @@
 </template>
 
 <script>
-import Button from '../Button.vue';
+import MainButton from '@/components/MainButton.vue';
+
 export default {
 components:{
-    Button,
+    MainButton,
 }
 }
 </script>
@@ -42,10 +44,22 @@ components:{
 }
 form{
     display: flex;
-    flex-direction: space-between;
+    flex-direction: column;
     gap: 1rem;
 }
+form label{
+    display: flex;
+    align-items: center;
+}
 
+label i{
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: #058C42;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: white;
+}
 @media (min-width: 768px) {
     .Newsletter__Container{
         display: grid;

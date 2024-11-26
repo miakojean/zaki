@@ -5,17 +5,16 @@
 padding: 0;
 margin: 0;
 box-sizing: border-box;
+font-family: 'Inter', sans-serif;
 }
 
 :root{
-    /* CSS HEX */
-  --tea-green: #c6ebbeff;
-  --celadon: #a9dbb8ff;
-  --air-superiority-blue: #7ca5b8ff;
-  --secondary--color: #38369aff;
-  --resolution-blue: #1d1f91ff;
-  --primary--color: #007ac0;
-  --resolution-blue-2: #191e92ff;
+  --primary--color:#058C42;
+  --secondary--color:#16DB65;
+  --tertiary--color:#04471C;
+
+  --black--color:#050C08;
+  --black--second:#040705;
 }
 
 
@@ -23,10 +22,12 @@ a {
     text-decoration: none;
 }
 
+button{
+    border: none;
+}
 /* About Font*/
 
 h1{
-    font-family: 'Inter', sans-serif;
     font-size: clamp(2.5rem, 4vw, 3rem); 
     text-align: center;
     font-weight: 700;
@@ -34,26 +35,23 @@ h1{
 }
 
 h2{
-    font-family: 'Inter', sans-serif;
     font-size: clamp(2rem, 3.5vw, 2.5rem); 
     text-align: center;
     font-weight: 700;
-    color: var(--resolution-blue-2);
+    color: var(--primary--color);
 }
 
 h3{
-    font-family: 'Inter', sans-serif;
     font-size: clamp(1.25rem, 2.5vw, 1.75rem); 
     text-align: start;
     font-weight: 700;
-    color: var(--air-superiority-blue);
+    color: var(--tertiary--color);
 }
 
 p{
-    font-family: 'Inter', sans-serif;
     font-size: clamp(1rem, 1.5vw, 1.25rem); 
     text-align: center;
     font-weight: 600;
     line-height: 1.5;
-    color: gray;
+    color: var(--black--second);
 }
