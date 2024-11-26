@@ -30,81 +30,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-* {
-padding: 0;
-margin: 0;
-box-sizing: border-box;
-
-}
-
-:root{
-    /* CSS HEX */
-  --tea-green: #c6ebbeff;
-  --celadon: #a9dbb8ff;
-  --air-superiority-blue: #7ca5b8ff;
-  --secondary--color: #38369aff;
-  --resolution-blue: #1d1f91ff;
-  --primary--color: #020887ff;
-  --resolution-blue-2: #191e92ff;
-}
-
-a {
-    text-decoration: none;
-}
-
-h1{
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(2.5rem, 4vw, 3rem); 
-    text-align: center;
-    font-weight: 700;
-    color: var(--primary--color);
-}
-
-p{
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.25rem); 
-    text-align: center;
-    font-weight: 600;
-    line-height: 1.5;
-    color: gray;
-}
-
-label{
-    padding: 1rem;
-    border: 1px solid gray;
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    cursor: pointer;
-}
-
-.Research{
-    border: none;
-    background: none;
-}
-
-i{
-    font-size: 1.5rem;
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--dark-moss-green);
-}
-
-input{
-    border: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    width: 80%;
-}
-
-input:focus{
-    outline: none;
-}
-
 img{
     background-size: cover;
     max-width: 400px;
@@ -187,5 +112,4 @@ header {
         width: 40%;
     }
 }
-  
 </style>

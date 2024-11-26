@@ -1,10 +1,15 @@
 <template>
-  <button type="submit">Trouver</button>
+  <button type="submit">{{ label }}</button>
 </template>
 
 <script>
 export default {
-
+  props: {
+    label: {
+    type: String,
+    default: "Trouver", // Texte par défaut
+    },
+},
 }
 </script>
 

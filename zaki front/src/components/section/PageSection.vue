@@ -70,25 +70,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-* {
-padding: 0;
-margin: 0;
-box-sizing: border-box;
-
-}
-
-:root{
-    /* CSS HEX */
-  --tea-green: #c6ebbeff;
-  --celadon: #a9dbb8ff;
-  --air-superiority-blue: #7ca5b8ff;
-  --secondary--color: #38369aff;
-  --resolution-blue: #1d1f91ff;
-  --primary--color: #020887ff;
-  --resolution-blue-2: #191e92ff;
-}
 
 .section-divider {
     border: none; /* Supprime la bordure par défaut */
@@ -98,34 +79,7 @@ box-sizing: border-box;
     opacity: 0.7; /* Transparence */
 }
 
-a {
-    text-decoration: none;
-}
 
-h1{
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(2.5rem, 4vw, 3rem); 
-    text-align: center;
-    font-weight: 700;
-    color: var(--primary--color);
-}
-
-h3{
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem); 
-    text-align: start;
-    font-weight: 700;
-    color: var(--air-superiority-blue);
-}
-
-p{
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.25rem); 
-    text-align: center;
-    font-weight: 600;
-    line-height: 1.5;
-    color: gray;
-}
 
 header p{
     font-family: 'Inter', sans-serif;
@@ -158,7 +112,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 0.5rem;
 }
 
@@ -171,19 +125,28 @@ header{
 
 /* Media Queries */
 @media (min-width: 768px) {
+
     .card__container{
+        padding: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-area: 1rem;
+    }
+    img{
+        width:80%;
     }
     
 }
 
 @media (min-width: 1024px) {
     .card__container{
+        padding: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-area: 1rem;
+    }
+    img{
+        width:80%;
     }
 }
 </style>

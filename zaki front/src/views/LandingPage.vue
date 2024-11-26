@@ -7,16 +7,17 @@
         <div class="custom-divider"></div>
         <MemberSection />
         <div class="custom-divider"></div>
-        <TestimonialSection />
+        <Newsletter />
     </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
-import Header from '@/components/Header.vue';
-import PageSection from '@/components/PageSection.vue';
-import MemberSection from '@/components/MemberSection.vue';
-import TestimonialSection from '@/components/TestimonialSection.vue';
+import NavBar from '@/components/section/NavBar.vue';
+import Header from '@/components/section/Header.vue';
+import PageSection from '@/components/section/PageSection.vue';
+import MemberSection from '@/components/section/MemberSection.vue';
+import TestimonialSection from '@/components/section/TestimonialSection.vue';
+import Newsletter from '@/components/section/Newsletter.vue';
 
 export default {
     components: {
@@ -24,7 +25,8 @@ export default {
         Header,
         PageSection,
         MemberSection,
-        TestimonialSection
+        TestimonialSection,
+        Newsletter,
     },
 };
 </script>
