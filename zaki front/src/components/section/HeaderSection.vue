@@ -11,8 +11,8 @@
             </p>
             <Research />
         </div>
-        <div class="header__img">
-            <img src="@/assets/famer1.webp" alt="Farmer" />
+        <div>
+            <img class="header__pic" src="@/assets/famer1.webp" alt="Farmer" />
         </div>
     </header>
 </template>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style>
-img{
+.header__pic{
     background-size: cover;
     max-width: 400px;
     max-height: 400px;
@@ -58,7 +58,6 @@ header {
     display: flex;
     align-items: center;
     text-align: center;
-    margin-top: 3rem;
     align-items: center;
     /*border: 1px solid gray;*/
 }
@@ -83,14 +82,13 @@ header {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        padding: 5rem 2rem;
+        padding: 3rem 2rem;
     }
 
     .header__container {
     display: flex;
     align-items: center;
     text-align: center;
-    margin-top: 3rem;
     align-items: center;
     /*border: 1px solid gray;*/
     }
@@ -125,7 +123,6 @@ header {
     display: flex;
     align-items: center;
     text-align: center;
-    margin-top: 3rem;
     justify-content: space-between;
     /*border: 1px solid gray;*/
     }

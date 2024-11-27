@@ -1,6 +1,6 @@
 <template>
     <section>
-        <header>
+        <header class="section__header">
             <h2> Nos produits </h2>
             <h3>
                 Découvrer ci-dessous les différentes catégories de produits
@@ -16,13 +16,13 @@
             </div>
             <div class="cards">
                 <h3>Fruits</h3>
-                <img class="Pic" src="@/assets/categories/fruit.jpg" alt="fruits" />
+                <img class="Pic" src="@/assets/categories/fruits.webp" alt="fruits" />
                 <p>Mangue, orange, ananas, etc.</p>
                 <MoreButton />
             </div>
             <div class="cards">
                 <h3>Tubercules</h3>
-                <img class="Pic" src="@/assets/categories/manioc.jpg" alt="Tubercules" />
+                <img class="Pic" src="@/assets/categories/tubercules.png" alt="Tubercules" />
                 <p>Manioc, igname, patates, tarots, etc.</p>
                 <MoreButton />
             </div>
@@ -107,10 +107,10 @@ header{
     padding: 0.5rem;
 }
 
-.pic{
+.Pic{
     background-size: cover;
-    max-width: 320px;
-    max-height: 320px;
+    width: 320px;
+    height: 320px;
     border-radius: 1rem;
 }
 
@@ -123,8 +123,11 @@ header{
         grid-template-columns: 1fr 1fr;
         grid-area: 1rem;
     }
-    img{
-        width:100%;
+
+    .Pic{
+        background-size: cover;
+        height: 240px;
+        width: 240px;
     }
     
 }
@@ -133,11 +136,13 @@ header{
     .card__container{
         padding: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-area: 1rem;
     }
-    img{
-        width:100%;
+    .Pic{
+        background-size: cover;
+        height: 300px;
+        width: 300px;
     }
     .cards{
     display: flex;
@@ -146,6 +151,9 @@ header{
     align-content: center;
     gap: 1rem;
     padding: 0.5rem;
+    }
+    .section__header{
+        padding: 1rem;
     }
 }
 </style>

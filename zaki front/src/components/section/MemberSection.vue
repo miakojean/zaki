@@ -1,6 +1,6 @@
 <template>
     <section>
-        <header>
+        <header class="section__header">
             <h2> Devenir partenaire </h2>
             <h3>
                 Mettez-vous en ligne pour accroitre votre visibilité.
@@ -9,7 +9,7 @@
         <div class="custom-head-divider"></div>
         <div class="card___container">
             <div class="cards">
-                <img class="Pic" src="@/assets/categories/farmer2.webp" alt="cereales" />
+                <img class="Member__Pic" src="@/assets/categories/farmer2.webp" alt="cereales" />
             </div>
             <div class="cards">
                 <p>
@@ -84,11 +84,11 @@ header{
     padding: 0.5rem;
 }
 
-.pic{
+.Member__Pic{
     background-size: cover;
-    max-width: 320px;
-    max-height: 320px;
-    border-radius: 1rem;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 10px;
 }
 
 /* Media Queries */

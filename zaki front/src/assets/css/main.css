@@ -30,21 +30,18 @@ button{
 
 h1{
     font-size: clamp(2.5rem, 4vw, 3rem); 
-    text-align: center;
     font-weight: 700;
     color: var(--primary--color);
 }
 
 h2{
     font-size: clamp(2.25rem, 3.5vw, 2.375rem); 
-    text-align: center;
     font-weight: 700;
     color: var(--primary--color);
 }
 
 h3{
     font-size: clamp(1.4375rem, 1.5vw, 1,5625rem); 
-    text-align: center;
     font-weight: 700;
     color: var(--black--third);
 }

@@ -8,7 +8,7 @@
         <MemberSection />
         <div class="custom-divider"></div>
         <Newsletter />
-        <div class="custom-divider"></div>
+        <div class="custom-divider-none"></div>
         <FooterSection />
     </div>
 </template>
@@ -41,6 +41,13 @@ export default {
     width: 100%; /* La ligne occupe toute la largeur */
     height: 2px; /* Épaisseur de la ligne */
     background: linear-gradient(to right, #345511, #6c757d); /* Dégradé pour un effet stylé */
+    margin: 2rem 0; /* Espace autour de la ligne */
+}
+
+.custom-divider-none {
+    width: 100%; /* La ligne occupe toute la largeur */
+    height: 2px; /* Épaisseur de la ligne */
+    background: none; /* Dégradé pour un effet stylé */
     margin: 2rem 0; /* Espace autour de la ligne */
 }
 

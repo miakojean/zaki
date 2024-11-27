@@ -1,6 +1,6 @@
 <template>
     <section>
-    <header>
+    <header class="section__header">
         <h2> Newsletter </h2>
     </header>
     <div class="custom-head-divider"></div>
