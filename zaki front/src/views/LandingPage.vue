@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import NavBar from '@/components/section/NavBar.vue';
-import PageSection from '@/components/section/PageSection.vue';
-import MemberSection from '@/components/section/MemberSection.vue';
-import TestimonialSection from '@/components/section/TestimonialSection.vue';
-import Newsletter from '@/components/section/Newsletter.vue';
-import HeaderSection from '@/components/section/HeaderSection.vue';
-import FooterSection from '@/components/section/FooterSection.vue';
+import NavBar from '@/components/Landing/NavBar.vue';
+import PageSection from '@/components/Landing/PageSection.vue';
+import MemberSection from '@/components/Landing/MemberSection.vue';
+import TestimonialSection from '@/components/Landing/TestimonialSection.vue';
+import Newsletter from '@/components/Landing/Newsletter.vue';
+import HeaderSection from '@/components/Landing/HeaderSection.vue';
+import FooterSection from '@/components/Landing/FooterSection.vue';
 
 
 export default {

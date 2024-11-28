@@ -25,6 +25,8 @@
             <ul>
                 <li class="footer_li">Conditions générales</li>
                 <li class="footer_li">Politique de confidentialité</li>
+                <li class="footer_li">Politique de livraison</li>
+                <li class="footer_li">Valeurs morales et éthiques</li>
                 <li class="footer_li">Droits d'auteurs</li>
             </ul>
         </div>

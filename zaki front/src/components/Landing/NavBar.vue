@@ -2,8 +2,8 @@
     <nav>
       <div class="nav__logo"><a href="#">ZAKI</a></div>
       <ul class="nav__links" id="nav-links">
-        <li class="link"><a href="#home">Accueil</a></li>
-        <li class="link"><a href="#about">Nos produits</a></li>
+        <li class="link"><router-link to="/">Accueil</router-link></li>
+        <li class="link"><router-link to="/products">Produits</router-link></li>
         <li class="link"><a href="#contact">Commander</a></li>
         <li class="link"><a href="">Devenir partenaire</a></li>
         <li class="link"><a href="newsletter.html">Newsletter</a></li>
@@ -45,6 +45,7 @@ justify-content: space-between;
 box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 border-bottom: 1px solid gray;
 background: white;
+z-index: 1;
 }
 
 .nav__logo a {

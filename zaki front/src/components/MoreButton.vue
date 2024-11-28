@@ -1,6 +1,6 @@
 <template>
-<button class="ButtonMore">
-    {{ label }} <i class="ri-arrow-right-line"></i>
+<button class="button2">{{ label }}
+    <i class="ri-arrow-right-line"></i>
 </button>
 </template>
   
@@ -16,24 +16,79 @@ props: {
 </script>
   
 <style>
-.ButtonMore{
-    width: 100%;
-    max-width: 400px;
-    padding: 1rem;
-    border: 1px solid #058C42;
-    background: none;
-    color: #058C42;
-    font-size: 1.2rem;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    cursor: pointer;
+/* From Uiverse.io by shah1345 */ 
+.button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  color: #058C42;
+  padding: 0.7em 1.7em;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 0.5em;
+  background: none;
+  border: 1px solid #058C42;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+/* #e8e8e8*/
+
+.button2:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
-.ButtonMore i{
-    font-size: 1.5rem;
-    font-weight: 700;
+.button2:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
 }
+
+.button2:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #058C42;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button2:hover {
+  color: #ffffff;
+  border: 1px solid #058C42;
+}
+
+.button2:hover:before {
+  top: -35%;
+  background-color: #058C42;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+  top: -45%;
+  background-color: #058C42;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
 </style>

@@ -10,7 +10,7 @@
         <div class="card__container">
             <div class="cards">
                 <h3>Céréales et Grains</h3>
-                <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
+                <img class="Pic" src="@/assets/categories/cereals.webp" alt="cereales" />
                 <p>Riz, mais, mil, sorgho, etc.</p>
                 <MoreButton />
             </div>
