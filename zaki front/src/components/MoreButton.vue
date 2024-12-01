@@ -35,6 +35,7 @@ props: {
   background: none;
   border: 1px solid #058C42;
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  max-width: 320px;
 }
 /* #e8e8e8*/
 

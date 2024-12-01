@@ -1,6 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '@/views/LandingPage.vue';
 import ResearchPage from '@/views/ResearchPage.vue';
+import Categories from '@/components/Products/Categories.vue';
+
+const categories = {
+    'cereales': {
+        name: 'Céréales et Grains',
+        image: new URL('@/assets/categories/cereals.webp', import.meta.url).href,
+        description: 'Riz, maïs, mil, sorgho, etc.',
+        items: ['Riz', 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
+    },
+    'fruits': {
+        name: 'Fruits',
+        image: new URL('@/assets/categories/fruits.webp', import.meta.url).href,
+        description: 'Mangue, orange, ananas, etc.',
+        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Banane', 'Goyave']
+    },
+}
 
 const routes = [
     {
@@ -12,6 +28,12 @@ const routes = [
         path: '/Products',
         name: 'Products',
         component: ResearchPage,
+    },
+    {
+        path: '/categorie/:categoryName',
+        name: 'Category',
+        component: Categories,
+        props: route => ({ category: categories[route.params.categoryName] })
     },
     
 ];

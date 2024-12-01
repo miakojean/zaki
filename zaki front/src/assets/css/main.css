@@ -60,3 +60,7 @@ p{
     line-height: 1.5;
     color: var(--black--third);
 }
+
+ul {
+    list-style: none;
+}

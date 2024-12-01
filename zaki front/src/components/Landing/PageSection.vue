@@ -128,6 +128,7 @@ header{
         background-size: cover;
         height: 240px;
         width: 240px;
+        cursor: pointer;
     }
     
 }
@@ -143,6 +144,7 @@ header{
         background-size: cover;
         height: 300px;
         width: 300px;
+        cursor: pointer;
     }
     .cards{
     display: flex;
