@@ -3,12 +3,12 @@
         <header class="section__header">
             <h2> Nos produits </h2>
             <h3>
-                Découvrer ci-dessous les différentes catégories de produits
+                Découvrez ci-dessous les différentes catégories de produits
             </h3>
         </header>
         <div class="custom-head-divider"></div>
         <div class="card__container">
-            <div class="cards" v-for="(category) in categories" :key="category">
+            <div class="cards" v-for="(category, index) in categories" :key="index">
                 <h3>{{ category }}</h3>
                 <img 
                     class="Pic" 
@@ -16,11 +16,15 @@
                     :alt="category" 
                 />
                 <p>{{ getCategoryDescription(category) }}</p>
-                <MoreButton />
+                <!-- Utilisation de router-link pour rendre le bouton dynamique -->
+                <router-link :to="getCategoryUrl(category)">
+                    <MoreButton label="Découvrir" />
+                </router-link>
             </div>
         </div>
     </div>
 </template>
+
   
 <script>
 import MoreButton from '../MoreButton.vue';
@@ -35,7 +39,7 @@ export default {
                 'Fruits',
                 'Légumes',
                 'Tubercules',
-                'Céréales et Grains',
+                'cereales',
                 'Légumineuses',
                 'Produits de la mer',
                 'Produits dérivés du lait',
@@ -53,7 +57,7 @@ export default {
                 'Fruits': new URL('@/assets/categories/fruits.webp', import.meta.url).href,
                 'Légumes': new URL('@/assets/categories/legumes.webp', import.meta.url).href,
                 'Tubercules': new URL('@/assets/categories/tubercules.png', import.meta.url).href,
-                'Céréales et Grains': new URL('@/assets/categories/cereals.webp', import.meta.url).href,
+                'cereales': new URL('@/assets/categories/cereals.webp', import.meta.url).href,
                 'Légumineuses': new URL('@/assets/categories/legumineuses.webp', import.meta.url).href,
                 'Produits de la mer': new URL('@/assets/categories/produits-de-la-mer.webp', import.meta.url).href,
                 'Produits dérivés du lait': new URL('@/assets/categories/produits-laitiers.webp', import.meta.url).href,
@@ -82,7 +86,13 @@ export default {
                 'Produits transformés locaux': 'Attiéké, gari, etc.'
             };
             return descriptions[category] || 'Description non disponible.';
+        },
+        getCategoryUrl(category) {
+            // Convertir la catégorie en URL utilisable
+            const categorySlug = category.toLowerCase().replace(/ /g, '');
+            return `/categorie/${categorySlug}`;
         }
     }
 };
 </script>
+

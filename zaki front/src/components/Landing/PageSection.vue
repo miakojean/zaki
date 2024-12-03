@@ -12,31 +12,31 @@
                 <h3>Céréales et Grains</h3>
                 <img class="Pic" src="@/assets/categories/cereals.webp" alt="cereales" />
                 <p>Riz, mais, mil, sorgho, etc.</p>
-                <MoreButton />
+                <MoreButton :route="'/Products'" />
             </div>
             <div class="cards">
                 <h3>Fruits</h3>
                 <img class="Pic" src="@/assets/categories/fruits.webp" alt="fruits" />
                 <p>Mangue, orange, ananas, etc.</p>
-                <MoreButton />
+                <MoreButton :route="'/Products'" />
             </div>
             <div class="cards">
                 <h3>Tubercules</h3>
                 <img class="Pic" src="@/assets/categories/tubercules.png" alt="Tubercules" />
                 <p>Manioc, igname, patates, tarots, etc.</p>
-                <MoreButton />
+                <MoreButton :route="'/Products'" />
             </div>
             <div class="cards">
                 <h3>Produits transformés</h3>
                 <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
                 <p>Attiéké, huile rouge, Djoumgblé, etc.</p>
-                <MoreButton />
+                <MoreButton :route="'/Products'" />
             </div>
             <div class="cards">
                 <h3>Autres produits</h3>
                 <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
                 <p>Découvrez tous nos produits ici.</p>
-                <MoreButton label = "Tous nos produits" />
+                <MoreButton label = "Tous nos produits" :route="'/Products'"/>
             </div>
         </div>
     </section>
@@ -53,7 +53,7 @@ export default {
         'Fruits',
         'Légumes',
         'Tubercules',
-        'Céréales et Grains',
+        'cereals',
         'Légumineuses',
         'Produits de la mer',
         'Produits dérivés du lait',

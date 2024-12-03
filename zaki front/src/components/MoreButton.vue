@@ -1,17 +1,26 @@
 <template>
-<button class="button2">{{ label }}
+  <button @click="redirect" class="button2">
+    {{ label }}
     <i class="ri-arrow-right-line"></i>
-</button>
+  </button>
 </template>
-  
+
 <script>
 export default {
-props: {
+  props: {
     label: {
-    type: String,
-    default: "Découvrir", // Texte par défaut
+      type: String,
+      default: "Découvrir" // Texte par défaut
     },
-},
+    route: {
+      type: String, // Lien vers lequel rediriger
+    }
+  },
+  methods: {
+    redirect() {
+      this.$router.push(this.route); // Redirige vers la route spécifiée
+    }
+  }
 };
 </script>
   
@@ -35,7 +44,8 @@ props: {
   background: none;
   border: 1px solid #058C42;
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  max-width: 320px;
+  width:100%;
+  max-width: 400px;
 }
 /* #e8e8e8*/
 

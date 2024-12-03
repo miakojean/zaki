@@ -19,7 +19,7 @@
                     accrue pour vos produits, d'un accès à une clientèle diversifiée, et d'un 
                     accompagnement personnalisé pour développer vos activités.
                 </p>
-                <MainButton label ="Ouvrir mon compte pro" icon="ri-arrow-right-line" />
+                <MainButton label="Ouvrir mon compte pro" icon="ri-arrow-right-line" />
             </div>
         </div>
     </section>

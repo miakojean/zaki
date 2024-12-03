@@ -5,10 +5,10 @@ import Categories from '@/components/Products/Categories.vue';
 
 const categories = {
     'cereales': {
-        name: 'Céréales et Grains',
+        name: 'cereals',
         image: new URL('@/assets/categories/cereals.webp', import.meta.url).href,
         description: 'Riz, maïs, mil, sorgho, etc.',
-        items: ['Riz', 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
+        items: [ 'Riz', 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
     },
     'fruits': {
         name: 'Fruits',
@@ -33,8 +33,14 @@ const routes = [
         path: '/categorie/:categoryName',
         name: 'Category',
         component: Categories,
-        props: route => ({ category: categories[route.params.categoryName] })
-    },
+        props: route => {
+            const category = categories[route.params.categoryName];
+            if (!category) {
+                console.warn(`La catégorie '${route.params.categoryName}' n'existe pas.`);
+            }
+            return { category: category || null };
+        }
+    }    
     
 ];
 

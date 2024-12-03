@@ -1,6 +1,7 @@
 <template>
-  <button class="MainButton" type="submit">{{ label }} 
-    <i v-if="icon" class="ri-arrow-right-line"></i>
+  <button @click="acheter" class="MainButton" type="submit">
+    {{ label }}
+    <i v-if="icon" :class="icon"></i>
   </button>
 </template>
 
@@ -8,15 +9,20 @@
 export default {
   props: {
     label: {
-    type: String,
-    default: "Souscrire", // Texte par défaut
+      type: String,
+      default: "Souscrire" // Texte par défaut
     },
     icon: {
-      type:String,
-      default:null, // Pas d'icone par défaut
-    },
+      type: String, // Classe d'icône comme chaîne
+      default: null // Pas d'icône par défaut
+    }
   },
-}
+  methods: {
+    acheter() {
+      console.log("Vous avez cliqué sur acheter");
+    }
+  }
+};
 </script>
 
 <style>

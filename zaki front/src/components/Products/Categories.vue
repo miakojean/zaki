@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="category">
         <NavBarVue />
         <section>
             <div class="categories">
@@ -13,17 +13,17 @@
                 <div class="food__items">
                     <h2>Liste de {{ category.name }}</h2>
                     <ul class="item__group">
-                        <li
-                            v-for="(item, idx) in category.items"
-                            :key="idx"
-                            class="items__list"
-                        >
+                        <li v-for="(item, idx) in category.items" :key="idx" class="items__list">
                             {{ item }} <i class="ri-arrow-right-line"></i>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
+    </div>
+    <div v-else>
+        <h2>Catégorie non trouvée</h2>
+        <p>La catégorie demandée n'existe pas. Veuillez vérifier l'URL.</p>
     </div>
 </template>
 
@@ -39,11 +39,13 @@ export default {
     props: {
         category: {
             type: Object,
-            required: true
+            required: false,
+            default: null
         }
     }
 };
 </script>
+
 
 
 
