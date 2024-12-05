@@ -2,21 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '@/views/LandingPage.vue';
 import ResearchPage from '@/views/ResearchPage.vue';
 import Categories from '@/components/Products/Categories.vue';
+import { categoriesData } from '@/data/categoriesData.js';
 
-const categories = {
-    'cereales': {
-        name: 'cereals',
-        image: new URL('@/assets/categories/cereals.webp', import.meta.url).href,
-        description: 'Riz, maïs, mil, sorgho, etc.',
-        items: [ 'Riz', 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
-    },
-    'fruits': {
-        name: 'Fruits',
-        image: new URL('@/assets/categories/fruits.webp', import.meta.url).href,
-        description: 'Mangue, orange, ananas, etc.',
-        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Banane', 'Goyave']
-    },
-}
+console.log(categoriesData.céréales)
+
 
 const routes = [
     {
@@ -30,17 +19,17 @@ const routes = [
         component: ResearchPage,
     },
     {
-        path: '/categorie/:categoryName',
+        path: '/products/categorie/:categoryName',
         name: 'Category',
         component: Categories,
         props: route => {
-            const category = categories[route.params.categoryName];
+            const category = categoriesData[route.params.categoryName]; // Utilise categoriesData
             if (!category) {
                 console.warn(`La catégorie '${route.params.categoryName}' n'existe pas.`);
             }
             return { category: category || null };
         }
-    }    
+    }      
     
 ];
 

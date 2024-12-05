@@ -1,0 +1,67 @@
+<template>
+    <div class="faq">
+        <div class="question">
+            <h3>What's Javascript?</h3>
+
+            <i class="ri-arrow-down-s-line"></i>
+        </div>
+        <div class="answer">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing 
+                elit. Porro, deleniti voluptate a iste voluptatum 
+                et at rem. Perferendis, blanditiis qui!
+            </p>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+.faq{
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question h3{
+    font-size: 1.8rem;
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+.answer p{
+    padding-top: 1rem;
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+
+.faq.active .answer{
+    max-height: 300px;
+}
+
+.faq.active i{
+    transform: rotate(180deg);
+}
+
+i{
+    transition: transform .5s ease-in;
+}
+</style>

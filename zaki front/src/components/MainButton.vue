@@ -39,6 +39,7 @@ export default {
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  max-width: 300px;
 }
 .MainButton:hover{
   background: #21aa58;

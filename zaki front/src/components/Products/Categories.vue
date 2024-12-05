@@ -7,16 +7,27 @@
                     <h4>{{ category.name }}</h4>
                     <img class="Pic" :src="category.image" :alt="category.name" />
                     <p>{{ category.description }}</p>
-                    <MainButton label="Commander" />
+                    
                 </div>
 
                 <div class="food__items">
                     <h2>Liste de {{ category.name }}</h2>
-                    <ul class="item__group">
-                        <li v-for="(item, idx) in category.items" :key="idx" class="items__list">
-                            {{ item }} <i class="ri-arrow-right-line"></i>
-                        </li>
-                    </ul>
+                    <div v-for="(item, idx) in category.items" :key="idx" class="food__card">
+                        <div class="food__head">
+                            <h3 class="food__h3">{{ item }}</h3>  <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                        <div class="food__desc">
+                            <p class="food__paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Alias ad, autem corrupti similique deleniti dicta eaque 
+                                soluta consequuntur laboriosam tempora ratione? Voluptates 
+                                minus amet eius facilis distinctio, modi non cumque!
+                            </p>
+                            <p class = "price">
+                                Prix: 2000 FCFA
+                            </p>
+                            <MainButton label="Commander" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -28,13 +39,17 @@
 </template>
 
 <script>
+import Accordion from '../Accordion.vue';
 import NavBarVue from '../Landing/NavBar.vue';
 import MainButton from '../MainButton.vue';
+
+
 
 export default {
     components: {
         NavBarVue,
-        MainButton
+        MainButton,
+        Accordion,
     },
     props: {
         category: {
@@ -42,14 +57,18 @@ export default {
             required: false,
             default: null
         }
-    }
+    },
+    methods: {
+        
+    } 
+
 };
 </script>
 
 
 
 
-<style>
+<style scoped>
 .item__group{
     line-height: 2;
 }
@@ -78,5 +97,59 @@ export default {
     align-items: center;
 }
 
+.food__h3{
+    cursor: pointer;
+}
+
+.food__head{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.food__head i{
+    font-size: 1.8rem;
+    transition: transform .5s ease-in;
+}
+
+.food__head.active i{
+    transform: rotate(180deg);
+}
+
+.food__desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.food__desc.active {
+   height: auto; 
+}
+
+@media (min-width: 768px) {
+    .categories{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    
+}
 
 </style>

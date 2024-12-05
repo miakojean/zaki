@@ -12,6 +12,7 @@
         <li class="link"><a href="login.html">Connexion</a></li>
         <li class="link"><a href="registration.html">Inscription</a></li>
       </div>
+      <ComponentCart />
       <div class="nav__menu__btn" id="menu-btn">
         <span><i class="ri-menu-3-line"></i></span>
       </div>
@@ -19,6 +20,10 @@
 </template>
 
 <script>
+import ComponentCart from '../ComponentCart.vue';
+
+
+
 export default {
     name: "NavBar",
     mounted() {
@@ -29,6 +34,9 @@ export default {
             navLinks.classList.toggle("open");
         });
     },
+    components:{
+      ComponentCart,
+    }
 };
 </script>
 
@@ -80,9 +88,15 @@ color: #058C42;
 }
 
 .link a {
-font-weight: 400;
-transition: 0.3s;
-color:#040705;
+  font-weight: 400;
+  transition: 0.3s;
+  color:#040705;
+}
+
+.link i{
+  font-size: 1.5rem;
+  color: #058C42;
+  cursor: pointer;
 }
 
 .link a:hover {
@@ -134,6 +148,8 @@ cursor: pointer;
     position: fixed;
     padding: 1rem;
     box-shadow: none;
+    display: flex;
+    align-items: center;
   }
 
   .nav__links {
@@ -154,6 +170,7 @@ cursor: pointer;
 
   .nav__log{
     display: flex;
+    align-items: center;
     gap: 1rem;
   }
 
@@ -163,6 +180,11 @@ cursor: pointer;
 
   .link a{
     position: relative;
+  }
+
+  .link{
+    display: flex;
+    align-items: center;
   }
 
   .nav__log .link a{
