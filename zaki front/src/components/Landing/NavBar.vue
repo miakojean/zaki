@@ -3,7 +3,7 @@
       <div class="nav__logo"><a href="#">ZAKI</a></div>
       <ul class="nav__links" id="nav-links">
         <li class="link"><router-link to="/">Accueil</router-link></li>
-        <li class="link"><router-link to="/products">Produits</router-link></li>
+        <li class="link"><router-link to="/product">Produits</router-link></li>
         <li class="link"><a href="#contact">Commander</a></li>
         <li class="link"><a href="">Devenir partenaire</a></li>
         <li class="link"><a href="newsletter.html">Newsletter</a></li>

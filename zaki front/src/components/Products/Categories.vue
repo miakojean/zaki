@@ -1,76 +1,42 @@
 <template>
-    <div v-if="category">
-        <NavBarVue />
-        <section>
-            <div class="categories">
-                <div class="cards">
-                    <h4>{{ category.name }}</h4>
-                    <img class="Pic" :src="category.image" :alt="category.name" />
-                    <p>{{ category.description }}</p>
-                    
-                </div>
-
-                <div class="food__items">
-                    <h2>Liste de {{ category.name }}</h2>
-                    <div v-for="(item, idx) in category.items" :key="idx" class="food__card">
-                        <div class="food__head">
-                            <h3 class="food__h3">{{ item }}</h3>  <i class="ri-arrow-down-s-line"></i>
-                        </div>
-                        <div class="food__desc">
-                            <p class="food__paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Alias ad, autem corrupti similique deleniti dicta eaque 
-                                soluta consequuntur laboriosam tempora ratione? Voluptates 
-                                minus amet eius facilis distinctio, modi non cumque!
-                            </p>
-                            <p class = "price">
-                                Prix: 2000 FCFA
-                            </p>
-                            <MainButton label="Commander" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div v-else>
-        <h2>Catégorie non trouvée</h2>
-        <p>La catégorie demandée n'existe pas. Veuillez vérifier l'URL.</p>
-    </div>
+  <header class="section__header">
+    <h2> Categories </h2>
+    <h3>
+      Découvrer ci-dessous les différentes catégories de produits
+    </h3>
+  </header>
+  <div class="custom-head-divider"></div>
+  <div class="card__container">
+      <div v-for="category in categories" :key="category.id" class="cards">
+        <h3>{{ category.name }}</h3>
+        <img :src="category.image" :alt="`Image de ${category.name}`" class="Pic" />
+        <p>{{ category.items.slice(0,6).join(', ') }} ...</p>
+        <MoreButton />
+      </div>
+  </div>
 </template>
 
 <script>
-import Accordion from '../Accordion.vue';
-import NavBarVue from '../Landing/NavBar.vue';
-import MainButton from '../MainButton.vue';
 
+import { categoriesData } from '@/data/categoriesData';
+import MoreButton from '../MoreButton.vue';
 
-
-export default {
-    components: {
-        NavBarVue,
-        MainButton,
-        Accordion,
-    },
-    props: {
-        category: {
-            type: Object,
-            required: false,
-            default: null
-        }
-    },
-    methods: {
-        
-    } 
-
+export default{
+  data() {
+    return {
+      categories:categoriesData,
+    };
+  },
+  components:{
+    MoreButton
+  }
 };
+
 </script>
-
-
-
 
 <style scoped>
 .item__group{
-    line-height: 2;
+  line-height: 2;
 }
 
 .food__items{
@@ -78,11 +44,11 @@ export default {
 }
 
 .items__list{
-    border-top: 1px solid #058C42;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+  border-top: 1px solid #058C42;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .items__list i{
@@ -90,61 +56,66 @@ export default {
 }
 
 .categories{
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .food__h3{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .food__head{
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-.food__head i{
-    font-size: 1.8rem;
-    transition: transform .5s ease-in;
+.food__head.active {
+  transition: transform 0.5s ease-in;
 }
 
-.food__head.active i{
-    transform: rotate(180deg);
+.food__head i {
+  font-size: 1.8rem;
+  transition: transform .5s ease-in; /* Assure une transition fluide */
+  transform: rotate(0deg); /* Position initiale */
 }
+
+.food__head.active i {
+  transform: rotate(180deg); /* Rotation appliquée en état actif */
+}
+
 
 .food__desc{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    max-height: 0;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-height: 0;
+  overflow: hidden;
 }
 
 .food__desc.active {
-   height: auto; 
+  height: auto; 
 }
 
 @media (min-width: 768px) {
     .categories{
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      align-items: center;
     }
     .cards{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
     }
 }
 

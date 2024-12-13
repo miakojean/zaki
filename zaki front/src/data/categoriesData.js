@@ -3,7 +3,7 @@ export const categoriesData = {
         name: 'céréales',
         image: new URL('@/assets/categories/cereals.webp', import.meta.url).href,
         description: 'Riz, maïs, mil, sorgho, etc.',
-        items: [ {name:'Riz', unity:'Kilogramme(Kg)', price:'650'}, 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
+        items: [ 'Riz', 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
     },
     'fruits': {
         name: 'Fruits',
