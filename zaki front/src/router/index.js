@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '@/views/LandingPage.vue';
 import ResearchPage from '@/views/ResearchPage.vue';
+import OrderView from '@/views/OrderView.vue';
 
 const routes = [
     {
@@ -14,9 +15,14 @@ const routes = [
         component: ResearchPage,
     },
     {
+        path: '/Order',
+        name: 'OrderView',
+        component: OrderView,
+    },
+    {
         path: '/Basket',
         name: 'Panier'
-    }
+    },
     
 ];
 
