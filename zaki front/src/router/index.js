@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '@/views/LandingPage.vue';
 import ResearchPage from '@/views/ResearchPage.vue';
 import OrderView from '@/views/OrderView.vue';
+import LoginView from '@/views/LoginView.vue';
 
 const routes = [
     {
@@ -23,6 +24,11 @@ const routes = [
         path: '/Basket',
         name: 'Panier'
     },
+    {
+        path: '/Login',
+        name: 'login',
+        component: LoginView
+    }
     
 ];
 

@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .header__pic{
     background-size: cover;
     max-width: 400px;

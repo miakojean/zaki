@@ -18,6 +18,10 @@ font-family: 'Inter', sans-serif;
   --black--third:#39443e;
 }
 
+body{
+    background: white;
+}
+
 
 a {
     text-decoration: none;

@@ -1,5 +1,6 @@
 <template>
-  <header class="section__header">
+  <div class="">
+    <header class="section__header">
     <h2> Categories </h2>
     <h3>
       Découvrer ci-dessous les différentes catégories de produits
@@ -13,6 +14,7 @@
         <p>{{ category.items.slice(0,6).join(', ') }} ...</p>
         <MoreButton />
       </div>
+  </div>
   </div>
 </template>
 
