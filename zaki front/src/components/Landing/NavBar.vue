@@ -9,8 +9,8 @@
         <li class="link"><a href="newsletter.html">Newsletter</a></li>
       </ul>
       <div class="nav__log">
-        <li class="link"><a href="login.html">Connexion</a></li>
-        <li class="link"><a href="registration.html">Inscription</a></li>
+        <li class="link"><router-link to="/login">Connexion</router-link></li>
+        <li class="link"><router-link to="/Registration">Inscription</router-link></li>
       </div>
       <ComponentCart />
       <div class="nav__menu__btn" id="menu-btn">

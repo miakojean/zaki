@@ -61,7 +61,8 @@ label{
 }
 
 .input__group input[type = 'text'],
-input[type = 'password']{
+input[type = 'password'],
+input[type = 'email']{
     padding: 1rem;
     width: 100%;
     max-width: 400px;

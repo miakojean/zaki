@@ -10,6 +10,7 @@
     "serve": "vue-cli-service --host 0.0.0.0"
   },
   "dependencies": {
+    "axios": "^1.7.9",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"
   },

@@ -3,6 +3,7 @@ import LandingPage from '@/views/LandingPage.vue';
 import ResearchPage from '@/views/ResearchPage.vue';
 import OrderView from '@/views/OrderView.vue';
 import LoginView from '@/views/LoginView.vue';
+import Registration from '@/views/Registration.vue';
 
 const routes = [
     {
@@ -28,6 +29,11 @@ const routes = [
         path: '/Login',
         name: 'login',
         component: LoginView
+    },
+    {
+        path:'/Registration',
+        name: 'Inscription',
+        component: Registration
     }
     
 ];
