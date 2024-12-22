@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import InputGroup from '@/components/Athentification/InputGroup.vue';
+import InputGroup from '@/components/Authentication/InputGroup.vue';
 import FooterSection from '@/components/Landing/FooterSection.vue';
 import NavBar from '@/components/Landing/NavBar.vue';
 import MainButton from '@/components/MainButton.vue';

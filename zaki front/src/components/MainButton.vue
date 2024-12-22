@@ -1,5 +1,5 @@
 <template>
-  <button @click="acheter" class="MainButton" type="submit">
+  <button class="MainButton" type="submit">
     {{ label }}
     <i v-if="icon" :class="icon"></i>
   </button>
@@ -18,9 +18,7 @@ export default {
     }
   },
   methods: {
-    acheter() {
-      console.log("Vous avez cliqué sur acheter");
-    }
+    
   }
 };
 </script>

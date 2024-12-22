@@ -1,233 +1,140 @@
 <template>
-    <div class="log">
-        <NavBar />
-        <section>
-            <div class="login__page">
-
-                <h1>
-                    Profitez d'achat de produits
-                    vivriers et non-vivriers à
-                    moindres coûts.
-                </h1>
-
-            </div>
-            <div class="login__form flex_center">
-                <h4 class="login__head">
-                    Bienvenu chez Zaki
-                </h4>
-                <h3>
-                    Inscrivez-vous
-                </h3>
-                <form>
-                    <InputGroup 
-                        label="Nom de famille"
-                        type="text"
-                        name="firstname"
-                        id="firstname"
-                        placeholder="Entrer votre nom"
-                    />
-                    <InputGroup 
-                        label="Prénoms"
-                        type="text"
-                        name="lastname"
-                        id="lastname"
-                        placeholder="Entrer votre prenom"
-                    />
-                    <InputGroup 
-                        label="Addresse mail"
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Entrer votre email"
-                    />
-                    <InputGroup 
-                        label="Username"
-                        type="text"
-                        name="username"
-                        id = "username"
-                        placeholder="Entrer votre nom"
-                    />
-                    <InputGroup 
-                        label="Mot de passe"
-                        type="password"
-                        name="password"
-                        id = "password"
-                        placeholder="Entrer votre mot de passe"
-                    />
-                    <div class="remeber">
-                        <input type="Checkbox" placeholder="Se souvenir de moi">
-                        <a href="#">
-                            Mot de passe oublié?
-                        </a>
-                    </div>
-                    <MainButton label = "inscription" />
-                </form>
-                <p>
-                    Pas de compte? <span>Cliquer ici</span>
-                </p>
-                <div class="separator">
-                    <span>ou</span>
-                </div>
-            </div>
-        </section>
-        <FooterSection />
+    <div class="registration">
+      <NavBar />
+      <section>
+        <h2>Étape {{ step }} : Inscription</h2>
+  
+      <form @submit.prevent="nextStep">
+        <div class="input" v-if="step === 1">
+          <InputGroup
+            label="Nom de famille"
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="Entrer votre nom de famille"
+            v-model="user.firstname"
+          />
+          <InputGroup
+            label="Prénom"
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Entrer votre prénom"
+            v-model="user.lastname"
+          />
+        </div>
+  
+        <div v-if="step === 2">
+          <InputGroup
+            label="Email"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Entrer votre email"
+            v-model="user.email"
+          />
+          <InputGroup
+            label="Nom d'utilisateur"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Entrer votre nom d'utilisateur"
+            v-model="user.username"
+          />
+        </div>
+  
+        <div v-if="step === 3">
+          <InputGroup
+            label="Mot de passe"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Créer un mot de passe"
+            v-model="user.password"
+          />
+        </div>
+  
+        <div class="actions">
+          <button type="button" @click="prevStep" v-if="step > 1">Précédent</button>
+          <button type="submit">
+            {{ step < 3 ? "Suivant" : "Soumettre" }}
+          </button>
+        </div>
+      </form>
+      </section>
     </div>
 </template>
 
-<script>
-import InputGroup from '@/components/Athentification/InputGroup.vue';
-import FooterSection from '@/components/Landing/FooterSection.vue';
-import NavBar from '@/components/Landing/NavBar.vue';
-import MainButton from '@/components/MainButton.vue';
+<script setup>
+import { ref } from "vue";
 
-import axios from 'axios';
+const step = ref(1);
 
-export default {
+const user = ref({
+  firstname: "",
+  lastname: "",
+  email: "",
+  username: "",
+  password: "",
+});
 
-    data() {
-        return {
-            firstname: '',
-            lastname: '',
-            username: '',
-            email: '',
-            password: '',
-            message: '',
-        };
-    },
+const nextStep = () => {
+  if (step.value < 3) {
+    step.value++;
+  } else {
+    console.log(user.value);
+    alert("Inscription terminée !");
+    // Vous pouvez ajouter ici une requête API pour soumettre les données.
+  }
+};
 
-    methods: {
-        async registerUser(){
-            try {
-                const response = await axios.post('http://127.0.0.1:8000/zakiapi/register/', {
-                    firstname: this.firstname,
-                    lastname: this.lastname,
-                    username: this.username,
-                    email: this.email,
-                    password: this.password,
-                });
-                this.message = response.data.message;
-            } catch (error){
-                this.message = "Erreur:" + error.response.data.detail || "Impossible de créer l'utilisateur.";
-            }
-        },
-    },
-
-    components:{
-        NavBar,
-        MainButton,
-        InputGroup,
-        FooterSection,
-
-    }
-
-}
+const prevStep = () => {
+  if (step.value > 1) {
+    step.value--;
+  }
+};
 </script>
 
 <style scoped>
+header{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
 
-.login__page{
-    display: none;
+header h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 section{
-    padding-top: 4rem;
-}
-
-.flex_center{
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-}
-
-.login__form{
     padding: 1rem;
 }
 
-.login__head{
-    color: #333;
-    font-size:clamp(1.4375rem, 1.5vw, 1,5625rem); 
-}
-
-.input__group{
+form{
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    gap: 1rem;
+}
+
+.Nextbutton{
+    display: flex;
+    align-items: center;
+    justify-content:end;
     gap: 0.5rem;
-    width: 100%;
-    max-width: 400px
+    max-width: 400px;
 }
 
-input[type="text"],
-input[type="password"],
-input[type = "email"]{
-    padding: 1rem;
-    width: 100%;
-    border: 1px solid #333;
-    border-radius: 1rem;
+i{
     font-size: 1rem;
-}
-
-input:focus{
-    outline: #058C42;
-}
-
-p{
-    font-weight: 400;
-}
-
-span{
-    color: #058C42;
     font-weight: 700;
-}
-
-.remeber{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
-
-.remeber a{
-    color: #058C42;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.separator {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 1rem 0; /* Espace vertical */
-    color: #555; /* Couleur du texte */
-    font-size: 1rem; /* Taille du texte */
-}
-
-.separator::before,
-.separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid black;
-    margin: 0 1rem; /* Espace autour du texte "ou" */
-}
-
-@media (min-width: 768px) {
-
-}
-
-@media (min-width: 1024px) {
-
-    section{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .login__page{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap:2rem
-    }
-    
 }
 </style>

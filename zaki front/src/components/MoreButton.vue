@@ -12,15 +12,7 @@ export default {
       type: String,
       default: "Découvrir" // Texte par défaut
     },
-    route: {
-      type: String, // Lien vers lequel rediriger
-    }
   },
-  methods: {
-    redirect() {
-      this.$router.push(this.route); // Redirige vers la route spécifiée
-    }
-  }
 };
 </script>
   

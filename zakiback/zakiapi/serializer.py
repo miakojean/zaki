@@ -9,12 +9,15 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name', 'username', 'email', 'password']
 
     def create(self, validated_data):
-        user = User.objects.create_user(
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
-            username=validated_data['username'],
-            email=validated_data['email'],
-            password=validated_data['password']
-        )
-        return user
+        try:
+            user = User.objects.create_user(
+                first_name=validated_data['first_name'],  # Correctement orthographié ?
+                last_name=validated_data['last_name'],    # Correctement orthographié ?
+                username=validated_data['username'],
+                email=validated_data['email'],
+                password=validated_data['password']
+            )
+            return user
+        except Exception as e:
+            raise serializers.ValidationError({"error": str(e)})
  
