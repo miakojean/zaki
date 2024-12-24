@@ -120,7 +120,6 @@ export default {
 <style>
 section{
     padding: 5rem 1rem 1rem 1rem;
-    height: 100vh;
 
 }
 

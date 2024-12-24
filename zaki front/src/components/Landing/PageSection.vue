@@ -12,7 +12,7 @@
                 <h3>Céréales et Grains</h3>
                 <img class="Pic" src="@/assets/categories/cereals.webp" alt="cereales" />
                 <p>Riz, mais, mil, sorgho, etc.</p>
-                <MoreButton :route="'/Products'" />
+                <MoreButton :route="'/Products'" /> 
             </div>
             <div class="cards">
                 <h3>Fruits</h3>
@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .section-divider {
     border: none; /* Supprime la bordure par défaut */
@@ -83,11 +83,22 @@ export default {
 
 section{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
-header{
+.section__header{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
+}
+
+.section__header h2, h3{
+    text-align: center;
 }
 
 .card__container{
@@ -109,8 +120,8 @@ header{
 
 .Pic{
     background-size: cover;
-    width: 320px;
-    height: 320px;
+    width: 240px;
+    height: 240px;
     border-radius: 1rem;
 }
 
@@ -118,7 +129,6 @@ header{
 @media (min-width: 768px) {
 
     .card__container{
-        padding: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-area: 1rem;
@@ -134,11 +144,20 @@ header{
 }
 
 @media (min-width: 1024px) {
+
+    .section__header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
     .card__container{
         padding: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-area: 1rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
     }
     .Pic{
         background-size: cover;
@@ -153,9 +172,6 @@ header{
     align-content: center;
     gap: 1rem;
     padding: 0.5rem;
-    }
-    .section__header{
-        padding: 1rem;
     }
 }
 </style>

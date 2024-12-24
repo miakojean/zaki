@@ -1,23 +1,23 @@
 <template>
     <section>
-    <header class="section__header">
-        <h2> Newsletter </h2>
-    </header>
-    <div class="custom-head-divider"></div>
-    <div class="Newsletter__Container">
-        <h4>
-            S'abonner à la newsletter pour être au courant de tout concernant le secteur agricole ivoirien.
-        </h4>
-        <div class="Newform">
-            <form action="#" method="post">
-                <label for="Email">
-                    <i class="ri-mail-line"></i>
-                    <input type="email" placeholder="Entrer votre email">
-                </label>
-                <MainButton label ="Souscrire" />
-            </form>
+        <header class="section__header">
+            <h2> Newsletter </h2>
+        </header>
+        <div class="custom-head-divider"></div>
+        <div class="Newsletter__Container">
+            <h4>
+                S'abonner à la newsletter pour être au courant de tout concernant le secteur agricole ivoirien.
+            </h4>
+            <div class="Newform">
+                <form action="#" method="post">
+                    <label for="Email">
+                        <i class="ri-mail-line"></i>
+                        <input type="email" placeholder="Entrer votre email">
+                    </label>
+                    <MainButton label ="Souscrire" />
+                </form>
+            </div>
         </div>
-    </div>
   </section>
 </template>
 
@@ -31,7 +31,25 @@ components:{
 }
 </script>
 
-<style>
+<style scoped>
+
+section{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 .Newsletter__Container{
     display: flex;
     flex-direction: column;
@@ -47,6 +65,24 @@ form{
 form label{
     display: flex;
     align-items: center;
+}
+
+label {
+    padding: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    gap: 1rem;
+    max-width: 400px;
+}
+
+input{
+    padding: 0.8rem;
+    border: none;
+    font-size: 1rem;
+}
+
+input:focus{
+    outline: none;
 }
 
 label i{

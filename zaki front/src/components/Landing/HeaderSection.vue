@@ -1,20 +1,20 @@
 <template>
-        <header>
-        <div class="header__container center__flex">
-            <h1>
-                Trouver vos produits viviriers et non vivriers ici.
-            </h1>
-            <p> 
-                Profitez d'une plateforme simple et rapide pour 
-                accéder aux meilleurs produits vivriers de Côte d'Ivoire. 
-                Commandez, payez en ligne, et recevez vos produits directement chez vous.
-            </p>
-            <Research />
+        <div class="HeaderSection">
+            <div class="header__container center__flex">
+                <h1>
+                    Trouver vos produits viviriers et non vivriers ici.
+                </h1>
+                <p> 
+                    Profitez d'une plateforme simple et rapide pour 
+                    accéder aux meilleurs produits vivriers de Côte d'Ivoire. 
+                    Commandez, payez en ligne, et recevez vos produits directement chez vous.
+                </p>
+                <Research />
+            </div>
+            <div class="head__pic">
+                <img class="header__pic" src="@/assets/famer1.webp" alt="Farmer" />
+            </div>
         </div>
-        <div>
-            <img class="header__pic" src="@/assets/famer1.webp" alt="Farmer" />
-        </div>
-    </header>
 </template>
 
 <script>
@@ -28,10 +28,19 @@ export default {
 </script>
 
 <style scoped>
+.HeaderSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .header__pic{
     background-size: cover;
-    max-width: 400px;
-    max-height: 400px;
+    height: 240px;
+    width: 240px;
+    cursor: pointer;
     border-radius: 1rem;
 }
 
@@ -43,32 +52,13 @@ export default {
     gap: 1rem;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 3rem 0 0 0;
-    text-align: center;
-    /*border: 1px solid gray;*/
-}
-
 .header__container {
     display: flex;
     align-items: center;
     text-align: center;
     align-items: center;
+    padding: 3rem 0 0 0;
     /*border: 1px solid gray;*/
-}
-
-.header__img img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 1rem;
-    background-size: cover;
-    display: block;
-    text-align: center;
 }
 
 .search__input{
@@ -77,54 +67,62 @@ header {
 
 /* Media Queries */
 @media (min-width: 768px) {
-    
-    header {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 3rem 2rem;
-    }
-
-    .header__container {
+    .HeaderSection{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    align-items: center;
-    /*border: 1px solid gray;*/
+    justify-content: center;
     }
 
-    .header__img {
-        width: 40%;
+    .header__container{
+        width: 50%;
+    }
+    
+    .head__pic{
+        padding-top: 1rem;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    label{
-        width: 100%;
-    }
+    .header__pic{
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        cursor: pointer;
 
-    .search__input input {
-        width: 70%;
-    }
+}
+    
 }
 
 @media (min-width: 1024px) {
-    header {
-        padding: 3rem 1rem 1rem;
+    .HeaderSection{
+        padding-top: 3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
-    .header__container {
-        width: 40%;
+    .header__container{
+        width: 50%;
+    }
+    
+    .head__pic{
+
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .header__img {
-        width: 40%;
-    }
+    .header__pic{
+        background-size: cover;
+        height: 400px;
+        width: 400px;
+        cursor: pointer;
 
-    .header__container {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    /*border: 1px solid gray;*/
-    }
+    } 
 }
 </style>

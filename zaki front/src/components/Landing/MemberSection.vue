@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .custom-head-divider {
@@ -60,11 +60,19 @@ section{
     padding: 1rem;
 }
 
-header{
+.section__header{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1rem;
+    gap: 1rem;
+}
+
+.section__header h2, h3 {
+    width: 100%;
+    text-align: center;
+    
 }
 
 .card___container{
@@ -79,15 +87,15 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     gap: 1rem;
     padding: 0.5rem;
 }
 
 .Member__Pic{
     background-size: cover;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 240px;
+    max-height: 240px;
     border-radius: 10px;
 }
 
@@ -96,7 +104,7 @@ header{
     .card___container{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-area: 1rem;
+        grid-area: 2rem;
     }
     .cards{
     display: flex;
@@ -105,6 +113,12 @@ header{
     align-content: center;
     gap: 1rem;
     padding: 0.5rem;
+    }
+    .Member__Pic{
+    background-size: cover;
+    max-width: 320px;
+    max-height: 320px;
+    border-radius: 10px;
     }
     
 }
