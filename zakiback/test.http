@@ -1,10 +1,7 @@
-POST http://127.0.0.1:8000/zakiapi/register/
+POST http://127.0.0.1:8000/zakiapi/login/
 Content-Type: application/json
 
 {
-    "first_name": "John",
-    "last_name": "Doe",
-    "username": "johndoe",
-    "email": "johndoe@example.com",
-    "password": "securepassword123"
+    "username": "user1",
+    "password": "Jeanyves123456@"
 }

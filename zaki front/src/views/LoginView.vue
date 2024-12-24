@@ -3,13 +3,11 @@
         <NavBar />
         <section>
             <div class="login__page">
-
                 <h1>
                     Profitez d'achat de produits
                     viviriers et non-vivriers à
                     moindres coûts.
                 </h1>
-
             </div>
             <div class="login__form flex_center">
                 <h4 class="login__head">
@@ -21,30 +19,30 @@
                 <InputGroup 
                     label="Username"
                     type="text"
-                    name="username"
-                    id = "username"
+                    v-model="user.username"
                     placeholder="Entrer votre nom"
                 />
                 <InputGroup 
                     label="Password"
                     type="password"
-                    name="password"
-                    id = "password"
+                    v-model="user.password"
                     placeholder="Entrer votre mot de passe"
                 />
                 <div class="remeber">
-                    <input type="Checkbox" placeholder="Se souvenir de moi">
+                    <input type="checkbox" placeholder="Se souvenir de moi">
                     <a href="#">
                         Mot de passe oublié?
                     </a>
                 </div>
-                <MainButton label = "connexion" />
+                <MainButton label="Connexion" @click="loginForm" />
                 <p>
                     Pas de compte? <span>Cliquer ici</span>
                 </p>
                 <div class="separator">
                     <span>ou</span>
                 </div>
+                <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+                <p v-if="successMessage" class="success">{{ successMessage }}</p>
             </div>
         </section>
         <FooterSection />
@@ -57,17 +55,54 @@ import FooterSection from '@/components/Landing/FooterSection.vue';
 import NavBar from '@/components/Landing/NavBar.vue';
 import MainButton from '@/components/MainButton.vue';
 
-
 export default {
+    data() {
+        return {
+            user: {
+                username: "",
+                password: ""
+            },
+            errorMessage: "",
+            successMessage: ""
+        };
+    },
 
-    components:{
+    components: {
         NavBar,
         MainButton,
         InputGroup,
         FooterSection,
+    },
 
+    methods: {
+        async loginForm() {
+            this.errorMessage = ""; // Reset error message
+            this.successMessage = ""; // Reset success message
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/zakiapi/login/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: this.user.username,
+                        password: this.user.password,
+                    })
+                });
+
+                if (response.ok) {
+                    this.successMessage = "Utilisateur connecté avec succès";
+                    // Redirection ou autre logique après la connexion réussie
+                } else {
+                    const errorData = await response.json();
+                    this.errorMessage = errorData.error || "Erreur de connexion. Veuillez réessayer.";
+                }
+            } catch (error) {
+                this.errorMessage = "Une erreur s'est produite. Veuillez vérifier votre connexion.";
+            }
+        }
     }
-
 }
 </script>
 

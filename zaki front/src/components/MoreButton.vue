@@ -37,7 +37,7 @@ export default {
   border: 1px solid #058C42;
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   width:100%;
-  max-width: 400px;
+  max-width: 300px;
 }
 /* #e8e8e8*/
 

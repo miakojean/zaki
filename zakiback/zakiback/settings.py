@@ -38,10 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'zakiapi',
+    'corsheaders',
     'rest_framework',
+    'django_filters',  # si tu as installé django-filter
+    'allauth',  # si tu as installé django-allauth
+    'rest_framework_simplejwt',  # si tu as installé JWT
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,6 +128,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+# Optionnel: Si tu veux permettre toutes les origines (pas recommandé pour la production)
+# CORS_ALLOW_ALL_ORIGINS = True
+
 
 #REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
