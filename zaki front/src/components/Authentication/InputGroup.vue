@@ -73,6 +73,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+  width: 100%;
 }
 
 label {
@@ -83,7 +84,7 @@ label {
 .input__group input {
   padding: 0.8rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   border: none;
   border-bottom: 1px solid #177737;
   font-size: 1rem;

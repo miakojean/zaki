@@ -2,6 +2,7 @@
     <div class="log">
         <NavBar />
         <section>
+
             <div class="login__page">
                 <h1>
                     Profitez d'achat de produits
@@ -9,6 +10,7 @@
                     moindres coûts.
                 </h1>
             </div>
+
             <div class="login__form flex_center">
                 <h4 class="login__head">
                     Bienvenu chez Zaki
@@ -16,31 +18,35 @@
                 <h3>
                     Connectez-vous
                 </h3>
-                <InputGroup 
-                    label="Username"
+                <InputGroup
+                    label="Nom d'utilisateur"
                     type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Entrer votre nom d'utilisateur"
                     v-model="user.username"
-                    placeholder="Entrer votre nom"
                 />
-                <InputGroup 
-                    label="Password"
+                <InputGroup
+                    label="Mot de passe"
                     type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Créer un mot de passe"
                     v-model="user.password"
-                    placeholder="Entrer votre mot de passe"
                 />
                 <div class="remeber">
-                    <input type="checkbox" placeholder="Se souvenir de moi">
+                    <span>
+                        Se souvenir de moi
+                        <input type="checkbox" placeholder="Se souvenir de moi">
+                    </span>
                     <a href="#">
                         Mot de passe oublié?
                     </a>
                 </div>
                 <MainButton label="Connexion" @click="loginForm" />
-                <p>
-                    Pas de compte? <span>Cliquer ici</span>
-                </p>
-                <div class="separator">
-                    <span>ou</span>
-                </div>
+                <span>
+                    Pas de compte? <router-link to="/registration"> cliquer ici </router-link>
+                </span>
                 <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
                 <p v-if="successMessage" class="success">{{ successMessage }}</p>
             </div>
@@ -157,18 +163,28 @@ input:focus{
 
 p{
     font-weight: 400;
+    
 }
 
 span{
-    color: #058C42;
+    color:#333;
     font-weight: 700;
+    text-align: center;
+    justify-content: center;
+}
+
+span a{
+    text-decoration: none;
+    color: #058C42;
 }
 
 .remeber{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    gap: 1rem;
+    
 }
 
 .remeber a{
@@ -207,6 +223,11 @@ span{
     .login__page{
         display: flex;
         align-items: center;
+    }
+    .remeber{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     }
     
 }

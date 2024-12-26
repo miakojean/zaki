@@ -12,67 +12,68 @@
 
         </div>
         
-        <div class="container">
-            <div class="regist__form">
-                <h4>Incription</h4>
-                <form action="">
-                    <div class="step" v-if="step === 1">
-                        <InputGroup 
-                            label="Nom de famille"
-                            name = "first_name"
-                            id = "firstname"
-                            placeholder="Entre votre nom de famille"
-                            v-model="user.firstname"
-                        />
-                        <InputGroup
-                            label="Prénom"
-                            type="text"
-                            id="lastname"
-                            name="lastname"
-                            placeholder="Entrer votre prénom"
-                            v-model="user.lastname"
-                        />
-                    </div>
-                    <div class="step" v-if="step ===2">
-                        <InputGroup
-                            label="Email"
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Entrer votre email"
-                            v-model="user.email"
-                        />
-                        <InputGroup
-                            label="Nom d'utilisateur"
-                            type="text"
-                            id="username"
-                            name="username"
-                            placeholder="Entrer votre nom d'utilisateur"
-                            v-model="user.username"
-                        />
-                    </div>
-                    <div class="step" v-if="step === maxstep">
-                        <InputGroup
-                            label="Mot de passe"
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Créer un mot de passe"
-                            v-model="user.password"
-                        />
-                    </div>
-                </form>
-                <div class="prevnext">
-                    <span v-if="step > 1" @click="prevStep">
-                        <i class="ri-arrow-left-line"> </i>
-                        Retour 
-                    </span>
-                    <MoreButton
-                        :label="step <= 2 ? 'Suivant' : 'Inscription'"
-                        @click="nextStep"
+        
+        <div class="regist__form flex_center">
+            <h4>Bienvenu chez Zaki</h4>
+                <h3>
+                    Inscrivez-vous
+                </h3>
+                <div class="step" v-if="step === 1">
+                    <InputGroup 
+                        label="Nom de famille"
+                        name = "first_name"
+                        id = "firstname"
+                        placeholder="Entre votre nom de famille"
+                        v-model="user.firstname"
                     />
-
+                    <InputGroup
+                        label="Prénom"
+                        type="text"
+                        id="lastname"
+                        name="lastname"
+                        placeholder="Entrer votre prénom"
+                        v-model="user.lastname"
+                    />
                 </div>
+                <div class="step" v-if="step ===2">
+                    <InputGroup
+                        label="Email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Entrer votre email"
+                        v-model="user.email"
+                    />
+                    <InputGroup
+                        label="Nom d'utilisateur"
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Entrer votre nom d'utilisateur"
+                        v-model="user.username"
+                    />
+                </div>
+                <div class="step" v-if="step === maxstep">
+                    <InputGroup
+                        label="Mot de passe"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Créer un mot de passe"
+                        v-model="user.password"
+                    />
+                </div>
+            
+            <div class="prevnext">
+                <span v-if="step > 1" @click="prevStep">
+                    <i class="ri-arrow-left-line"> </i>
+                    Retour 
+                </span>
+                <MoreButton
+                    :label="step <= 2 ? 'Suivant' : 'Inscription'"
+                    @click="nextStep"
+                />
+
             </div>
         </div>
     </section>
@@ -167,7 +168,7 @@ export default {
 
 <style>
 section{
-    padding: 5rem 1rem 1rem 1rem;
+    padding-top: 4rem;
 
 }
 
@@ -175,12 +176,25 @@ section{
     display: none;
 }
 
-.regist__form{
+.flex_center{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.regist__form{
+    padding: 1rem;
+}
+
+.input__group{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px
 }
 
 .step{
@@ -188,7 +202,9 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     gap: 2rem;
+    padding: 0;
 }
 
 .prevnext{
@@ -232,6 +248,9 @@ button{
     .login__page{
         display: flex;
         align-items: center;
+    }
+    form{
+    width: 100%;
     }
     
 }
