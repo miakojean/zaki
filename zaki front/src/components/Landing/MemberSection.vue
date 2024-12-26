@@ -58,6 +58,11 @@ export default {
 
 section{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .section__header{
@@ -107,18 +112,18 @@ section{
         grid-area: 2rem;
     }
     .cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 1rem;
-    padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 1rem;
+        padding: 0.5rem;
     }
     .Member__Pic{
-    background-size: cover;
-    max-width: 320px;
-    max-height: 320px;
-    border-radius: 10px;
+        background-size: cover;
+        max-width: 320px;
+        max-height: 320px;
+        border-radius: 10px;
     }
     
 }
@@ -127,16 +132,21 @@ section{
     .card___container{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-area: 1rem;
+        grid-area: 2rem;
     }
-
     .cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 1rem;
-    padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    .Member__Pic{
+        background-size: cover;
+        max-width: 320px;
+        max-height: 320px;
+        border-radius: 10px;
     }
 }
 </style>

@@ -65,6 +65,7 @@ export default {
 footer{
     background: #058C42;
     padding: 1rem;
+    font-size: 0.8rem;
 }
 .footer_font{
     color: white;

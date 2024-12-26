@@ -156,8 +156,8 @@ section{
     .card__container{
         padding: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1rem;
     }
     .Pic{
         background-size: cover;
@@ -166,12 +166,12 @@ section{
         cursor: pointer;
     }
     .cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 1rem;
-    padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 1rem;
+        padding: 0.5rem;
     }
 }
 </style>

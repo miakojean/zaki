@@ -224,6 +224,7 @@ span{
     justify-content: left;
     cursor: pointer;
     gap: 1rem;
+    max-width: 400px;
 }
 
 form{

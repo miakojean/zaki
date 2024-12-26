@@ -80,27 +80,31 @@ export default {
 </script>
 
 <style scoped>
+.Research__Box{
+  width: 100%
+}
+
 form{
     width: 100%;
 }
 label{
-    padding: 0.3rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-    width: 100%;
-    border: 1px solid gray;
-    border-radius: 1.2rem;
-    cursor: pointer;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 
 input{
-    padding: 1rem;
-    border: none;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    width: 100%;
+  padding: 1rem;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 input:focus{
@@ -108,18 +112,19 @@ input:focus{
 }
 
 .Research{
-    background: none;
-    color: #058C42;
+  background: none;
+  color: #058C42;
+  display:contents;
 }
 
 .Research i{
-    background: #058C42;
-    border-radius: 50%;
-    color: white;
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: 0.4s ease-in-out;
+  background: #058C42;
+  border-radius: 50%;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: 0.4s ease-in-out;
 }
 
 .Research i:hover{

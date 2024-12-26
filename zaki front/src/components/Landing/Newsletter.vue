@@ -110,7 +110,7 @@ label i{
     .Newsletter__Container{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-area: 1rem;
+        gap: 2rem;
         align-content: center;
     }
 
