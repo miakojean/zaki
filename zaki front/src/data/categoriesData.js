@@ -9,7 +9,7 @@ export const categoriesData = {
         name: 'Fruits',
         image: new URL('@/assets/categories/fruits.webp', import.meta.url).href,
         description: 'Mangue, orange, ananas, etc.',
-        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Banane douce', 'Goyave', 'Pomme']
+        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Banane douce', 'Goyave', 'Pomme', 'Poire']
     },
     'légumes': {
         name: 'Légumes',
@@ -44,10 +44,10 @@ export const categoriesData = {
         items: ['Lait entier', 'Lait demi-écrémé', 'Lait écrémé', 'Yaourt nature', 'Yaourt aux fruits', 'Fromage blanc', 'Fromage frais', 'Fromage à pâte dure', 'Fromage à pâte molle', 'Beurre']
     },
     'viandes': {
-    name: 'Viandes',
-    image: new URL('@/assets/categories/viandes.webp', import.meta.url).href,
-    description: 'Bœuf, poulet, porc, etc.',
-    items: ['Bœuf','Poulet','Porc','Agneau','Dinde','Canard','Lapin','Chèvre','Côte de bœuf','Saucisse']
+        name: 'Viandes',
+        image: new URL('@/assets/categories/viandes.webp', import.meta.url).href,
+        description: 'Bœuf, poulet, porc, etc.',
+        items: ['Bœuf','Poulet','Porc','Agneau','Dinde','Canard','Lapin','Chèvre','Côte de bœuf','Saucisse']
     },
     'epicesetcondiments': {
         name: 'Épices et Condiments',

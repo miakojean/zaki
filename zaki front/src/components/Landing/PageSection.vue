@@ -131,7 +131,7 @@ section{
     .card__container{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-area: 1rem;
+        gap: 1rem;
     }
 
     .Pic{
@@ -161,8 +161,8 @@ section{
     }
     .Pic{
         background-size: cover;
-        height: 300px;
-        width: 300px;
+        height: 240px;
+        width: 240px;
         cursor: pointer;
     }
     .cards{

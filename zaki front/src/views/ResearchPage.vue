@@ -17,7 +17,7 @@ import Categories from '@/components/Products/Categories.vue'
 export default {
     components:{
       NavBar,
-      HeaderProduct,
+      HeaderProduct, 
       PageSection,
       Categories,
       FooterSection,

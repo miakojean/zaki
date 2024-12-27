@@ -1,21 +1,21 @@
 <template>
-  <div class="">
+  <section>
     <header class="section__header">
     <h2> Categories </h2>
     <h3>
       Découvrer ci-dessous les différentes catégories de produits
     </h3>
-  </header>
-  <div class="custom-head-divider"></div>
-  <div class="card__container">
-      <div v-for="category in categories" :key="category.id" class="cards">
-        <h3>{{ category.name }}</h3>
-        <img :src="category.image" :alt="`Image de ${category.name}`" class="Pic" />
-        <p>{{ category.items.slice(0,6).join(', ') }} ...</p>
-        <MoreButton />
-      </div>
-  </div>
-  </div>
+    </header>
+    <div class="custom-head-divider"></div>
+    <div class="card__container">
+        <div v-for="category in categories" :key="category.id" class="cards">
+          <h3>{{ category.name }}</h3>
+          <img :src="category.image" :alt="`Image de ${category.name}`" class="Pic" />
+          <p>{{ category.items.slice(0,6).join(', ') }} ...</p>
+          <MoreButton />
+        </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -37,6 +37,15 @@ export default{
 </script>
 
 <style scoped>
+section{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .item__group{
   line-height: 2;
 }
