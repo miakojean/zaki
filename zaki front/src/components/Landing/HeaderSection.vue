@@ -119,10 +119,9 @@ export default {
 
     .header__pic{
         background-size: cover;
-        height: 400px;
-        width: 400px;
+        height: 320px;
+        width: 320px;
         cursor: pointer;
-
     } 
 }
 </style>
