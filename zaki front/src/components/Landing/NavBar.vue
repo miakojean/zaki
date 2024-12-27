@@ -5,12 +5,11 @@
         <li class="link"><router-link to="/">Accueil</router-link></li>
         <li class="link"><router-link to="/product">Produits</router-link></li>
         <li class="link"><a href="#contact">Commander</a></li>
-        <li class="link"><a href="">Devenir partenaire</a></li>
         <li class="link"><a href="newsletter.html">Newsletter</a></li>
       </ul>
       <div class="nav__log">
         <li class="link"><router-link to="/login">Connexion</router-link></li>
-        <li class="link"><router-link to="/Registration">Inscription</router-link></li>
+        <li class="link"><router-link to="/Registration">Devenir partenaire</router-link></li>
       </div>
       <ComponentCart />
       <div class="nav__menu__btn" id="menu-btn">

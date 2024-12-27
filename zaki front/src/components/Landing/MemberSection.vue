@@ -129,6 +129,7 @@ section{
 }
 
 @media (min-width: 1024px) {
+
     .card___container{
         display: grid;
         grid-template-columns: 1fr 1fr;

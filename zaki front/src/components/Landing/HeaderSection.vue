@@ -122,7 +122,6 @@ export default {
         height: 320px;
         width: 320px;
         cursor: pointer;
-
     } 
 }
 </style>
