@@ -161,8 +161,8 @@ section{
     }
     .Pic{
         background-size: cover;
-        height: 240px;
-        width: 240px;
+        height: 400px;
+        width: 400px;
         cursor: pointer;
     }
     .cards{

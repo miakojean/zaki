@@ -1,7 +1,7 @@
 <template>
     <div class="log">
         <NavBar />
-        <section>
+        <section class="reg__section">
 
             <div class="login__page">
                 <h1>
@@ -219,6 +219,9 @@ span a{
     section{
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+    .reg__section{
+        height: 100vh;
     }
     .login__page{
         display: flex;

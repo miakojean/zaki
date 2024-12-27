@@ -9,7 +9,7 @@
       </ul>
       <div class="nav__log">
         <li class="link"><router-link to="/login">Connexion</router-link></li>
-        <li class="link"><router-link to="/Registration">Devenir partenaire</router-link></li>
+        <li id="member" class="link"><router-link to="/Registration">Devenir partenaire</router-link></li>
       </div>
       <ComponentCart />
       <div class="nav__menu__btn" id="menu-btn">
@@ -217,6 +217,11 @@ cursor: pointer;
   .nav__links .link a:hover::after{
     transform-origin: left;
     transform: scale(1);
+  }
+
+  #member{
+    background: #16DB65;
+    color: #f3f3f3;
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <NavBar />
-    <section>
+    <section class="reg__section">
         <div class="login__page">
 
             <h1>
@@ -75,6 +75,9 @@
                 />
 
             </div>
+            <span>
+                J'ai déjà un compte <router-link to="/registration"> Me connecter </router-link>
+            </span>
         </div>
     </section>
     <FooterSection />
@@ -245,6 +248,9 @@ button{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
+    }
+    .reg__section{
+        height: 100vh;
     }
     .login__page{
         display: flex;

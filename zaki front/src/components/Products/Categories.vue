@@ -149,8 +149,8 @@ img{
   }
   img{
     background-size: cover;
-    max-width: 320px;
-    max-height: 320px;
+    max-width: 400px;
+    max-height: 400px;
     border-radius: 10px;
   } 
 }
