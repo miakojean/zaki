@@ -18,9 +18,9 @@ const routes = [
         component: ResearchPage,
     },
     {
-        path:'/product/category',
+        path:'/category',
         name:'categories',
-        Component:Products,
+        component: Products,
     },
     {
         path: '/Order',

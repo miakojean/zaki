@@ -156,8 +156,39 @@ section{
     .card__container{
         padding: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
+    }
+    .Pic{
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        cursor: pointer;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .section__header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    .card__container{
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
     }
     .Pic{
         background-size: cover;

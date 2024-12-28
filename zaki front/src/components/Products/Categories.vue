@@ -1,5 +1,6 @@
 <template>
   <section>
+    
     <header class="section__header">
     <h2> Categories </h2>
     <h3>
@@ -149,10 +150,40 @@ img{
   }
   img{
     background-size: cover;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 10px;
   } 
 }
 
+@media (min-width: 1920px) {
+    .section__header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    .card__container{
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+    .Pic{
+        background-size: cover;
+        height: 400px;
+        width: 400px;
+        cursor: pointer;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+}
 </style>

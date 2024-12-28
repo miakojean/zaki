@@ -9,7 +9,7 @@ export const categoriesData = {
         name: 'Fruits',
         image: new URL('@/assets/categories/fruits.webp', import.meta.url).href,
         description: 'Mangue, orange, ananas, etc.',
-        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Banane douce', 'Goyave', 'Pomme', 'Poire']
+        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Goyave', 'Banane douce', 'Pomme', 'Poire']
     },
     'légumes': {
         name: 'Légumes',

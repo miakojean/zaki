@@ -9,7 +9,7 @@
       </ul>
       <div class="nav__log">
         <li class="link"><router-link to="/login">Connexion</router-link></li>
-        <li id="member" class="link"><router-link to="/Registration">Devenir partenaire</router-link></li>
+        <li id="member" class="link"><router-link to="/Registration">Devenir partenaire zaki</router-link></li>
       </div>
       <ComponentCart />
       <div class="nav__menu__btn" id="menu-btn">
@@ -193,7 +193,7 @@ cursor: pointer;
     transition: 0.3s;
     font-weight: 500;
     background: var(--bice-blue);
-    padding: 12px;
+    padding: 0.5rem;
   }
 
   .link__log{
@@ -220,7 +220,13 @@ cursor: pointer;
   }
 
   #member{
-    background: #16DB65;
+    background: #058C42;
+    color: #f3f3f3;
+    border: 1px solid #058C42;
+    border-radius: 1rem;
+  }
+
+  #member a{
     color: #f3f3f3;
   }
 }
