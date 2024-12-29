@@ -12,7 +12,18 @@ export default {
       type: String,
       default: "Découvrir" // Texte par défaut
     },
+    category: {
+      type: String,
+      required: true, // La catégorie est obligatoire pour construire la route dynamique
+    },
   },
+  
+  methods: {
+    redirect() {
+      // Redirection vers la route dynamique
+      this.$router.push({ name: "categories", params: { category: this.category } });
+    },
+  }
 };
 </script>
   

@@ -6,13 +6,17 @@ export const categoriesData = {
         items: [ 'Riz', 'Maïs', 'Mil', 'Sorgho', 'Blé', 'Avoine', 'Orge', 'Fonio']
     },
     'fruits': {
-        name: 'Fruits',
+        name: 'fruits',
         image: new URL('@/assets/categories/fruits.webp', import.meta.url).href,
         description: 'Mangue, orange, ananas, etc.',
-        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Goyave', 'Banane douce', 'Pomme', 'Poire']
+        items: ['Mangue', 'Orange', 'Ananas', 'Papaye', 'Goyave', 'Banane douce', 'Pomme', 
+            'Poire', 'Fraise', 'Framboise', 'Cerise', 'Abricot', 'Pêche', 'Nectarine', 
+            'Kiwi', 'Citron', 'Mandarine', 'Pamplemousse', 'Raisin', 'Melon', 'Pastèque', 
+            'Prune', 'Mirabelle', 'Cassis', 'Myrtille', 'Groseille', 'Figue', 'Kaki', 'Grenade', 
+            'Litchi', 'Noix de coco', 'Fruit de la passion', 'Grenade', 'Pomme grenade']
     },
     'légumes': {
-        name: 'Légumes',
+        name: 'légumes',
         image: new URL('@/assets/categories/legumes.webp', import.meta.url).href,
         description: 'Tomates, oignons, aubergines, etc.',
         items: ['Laitue', 'Épinards', 'Carotte','Tomates','Aubergines','Courgettes','Concombres',
@@ -20,13 +24,13 @@ export const categoriesData = {
         'Gombo', 'Chou-fleur', 'Chou rouge', 'Okra', 'Brocoli']
     },
     'tubercules': {
-        name: 'Tubercules',
+        name: 'tubercules',
         image: new URL('@/assets/categories/tubercules.png', import.meta.url).href,
         description: 'Pommes de terre, patates douces, etc.',
         items: ['Pomme de terre', 'Patate douce', 'Manioc', 'Carotte', 'Navet', 'Betterave', 'Topinambour', 'Oignon nouveau']
     },
     'légumineuses': {
-        name: 'Légumineuses',
+        name: 'légumineuses',
         image: new URL('@/assets/categories/legumineuses.webp', import.meta.url).href,
         description: 'Lentilles, haricots, pois chiches, etc.',
         items: ['Lentilles', 'Haricots blancs', 'Haricots rouges', 'Pois chiches', 'Fèves', 'Pois cassés', 'Lupins', 'Soja']

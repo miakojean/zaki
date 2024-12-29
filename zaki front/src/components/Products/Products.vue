@@ -1,43 +1,57 @@
 <template>
-  <section>
+  <section class="category-details">
     <NavBar />
-    <header class="section__header">
-    <h2> Categories </h2>
-    <h3>
-      Découvrer ci-dessous les différentes catégories de produits
-    </h3>
-    </header>
-    <div class="custom-head-divider"></div>
-    <div class="card__container">
-        <div v-for="category in categories" :key="category.id" class="cards">
-          <h3>{{ category.name }}</h3>
-          <img :src="category.image" :alt="`Image de ${category.name}`" class="Pic" />
-          <p>{{ category.items.slice(0,5).join(', ') }} ...</p>
-          <MoreButton />
+    <div v-if="category">
+      <header class="section__header">
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+      </header>
+      <div class="custom-head-divider"></div>
+      <div class="card___container">
+        <img :src="category.image" :alt="`Image de ${category.name}`" class="category-image" />
+        <div class="cards">
+          <h4>Produits disponibles</h4>
+          <ul >
+            <li v-for="item in category.items" :key="item" class="food__items">{{ item }} <span> <ComponentCart /></span></li>
+          </ul>
         </div>
+      </div>
+    </div>
+    <div v-else>
+      <p>Catégorie non trouvée. <router-link to="/">Retour à l'accueil</router-link></p>
     </div>
   </section>
 </template>
 
 <script>
-
 import { categoriesData } from '@/data/categoriesData';
-import MoreButton from '../MoreButton.vue';
 import NavBar from '../Landing/NavBar.vue';
+import ComponentCart from '../ComponentCart.vue';
 
-export default{
+export default {
+  name: 'CategoryDetails',
   data() {
     return {
-      categories:categoriesData,
+      category: null,
     };
   },
   components:{
-    MoreButton,
-    NavBar
-  }
-};
+    NavBar,
+    ComponentCart,
+  },
+  mounted() {
+    const categoryKey = this.$route.params.category;
+    this.category = categoriesData[categoryKey] || null;
+    
 
+    // Redirection si la catégorie n'existe pas
+    if (!this.category) {
+      this.$router.push('/not-found');
+    }
+  },
+};
 </script>
+
 
 <style scoped>
 
@@ -63,16 +77,15 @@ section{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 .cards{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   padding: 0.5rem;
 }
 
@@ -87,8 +100,37 @@ img{
   line-height: 2;
 }
 
+ul{
+  list-style: none;
+  padding: 0;
+  line-height:2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 50vh;
+  overflow-y: auto;
+
+}
+
 .food__items{
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+span {
+  color: #04471C;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  cursor: pointer;
+  gap: 1rem;
+  max-width: 400px;
 }
 
 .items__list{
@@ -113,34 +155,57 @@ img{
 
 @media (min-width: 768px) {
 
-  .card__container{
+  .card___container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
+    
   }
   .cards{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
     gap: 1rem;
     padding: 0.5rem;
   }
   img{
     background-size: cover;
-    max-width: 320px;
-    max-height: 320px;
+    max-width: 350px;
+    max-height: 350px;
     border-radius: 10px;
+  }
+  ul{
+    padding-top: 1rem;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  .food__items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+  span {
+  color: #04471C;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  cursor: pointer;
+  gap: 1rem;
+  max-width: 400px;
   }
     
 }
 
 @media (min-width: 1024px) {
 
-  .card__container{
+  .card___container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr ;
+    gap: 3rem;
   }
   .cards{
     display: flex;
@@ -152,40 +217,54 @@ img{
   }
   img{
     background-size: cover;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 400px;
+    max-height: 400px;
     border-radius: 10px;
-  } 
+  }
+  ul{
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  .food__items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
 }
 
 @media (min-width: 1920px) {
-    .section__header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
-    }
-    .card__container{
-        padding: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 2rem;
-    }
-    .Pic{
-        background-size: cover;
-        height: 400px;
-        width: 400px;
-        cursor: pointer;
-    }
-    .cards{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        gap: 1rem;
-        padding: 0.5rem;
-    }
+  .card___container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  img{
+    background-size: cover;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 10px;
+  }
+  ul{
+    padding-top: 1rem;
+    padding: 0.5rem;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  .food__items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
 }
 </style>

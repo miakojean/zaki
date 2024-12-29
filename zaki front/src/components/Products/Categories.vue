@@ -13,7 +13,7 @@
           <h3>{{ category.name }}</h3>
           <img :src="category.image" :alt="`Image de ${category.name}`" class="Pic" />
           <p>{{ category.items.slice(0,5).join(', ') }} ...</p>
-          <MoreButton />
+          <MoreButton :label="`${category.name}`" :category="category.name"/>
         </div>
     </div>
   </section>

@@ -130,7 +130,7 @@ text-align: center;
 }
 i{
     font-size: 1.5rem;
-    color: #888;
+    color: #058C42;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }

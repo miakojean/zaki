@@ -5,6 +5,7 @@ import OrderView from '@/views/OrderView.vue';
 import LoginView from '@/views/LoginView.vue';
 import Registration from '@/views/Registration.vue';
 import Products from '@/components/Products/Products.vue';
+import { categoriesData } from '@/data/categoriesData';
 
 const routes = [
     {
@@ -18,7 +19,7 @@ const routes = [
         component: ResearchPage,
     },
     {
-        path:'/category',
+        path:'/product/:category',
         name:'categories',
         component: Products,
     },
