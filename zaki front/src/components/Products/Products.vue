@@ -3,7 +3,7 @@
     <NavBar />
     <div v-if="category">
       <header class="section__header">
-        <h1>{{ category.name }}</h1>
+        <h1>{{ category.r_name }}</h1>
         <p>{{ category.description }}</p>
       </header>
       <div class="custom-head-divider"></div>
@@ -42,7 +42,6 @@ export default {
   mounted() {
     const categoryKey = this.$route.params.category;
     this.category = categoriesData[categoryKey] || null;
-    
 
     // Redirection si la catégorie n'existe pas
     if (!this.category) {

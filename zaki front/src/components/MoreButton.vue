@@ -14,7 +14,7 @@ export default {
     },
     category: {
       type: String,
-      required: true, // La catégorie est obligatoire pour construire la route dynamique
+      required: false, // La catégorie est obligatoire pour construire la route dynamique
     },
   },
   

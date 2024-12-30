@@ -10,10 +10,10 @@
     <div class="custom-head-divider"></div>
     <div class="card__container">
         <div v-for="category in categories" :key="category.id" class="cards">
-          <h3>{{ category.name }}</h3>
+          <h3>{{ category.r_name }}</h3>
           <img :src="category.image" :alt="`Image de ${category.name}`" class="Pic" />
           <p>{{ category.items.slice(0,5).join(', ') }} ...</p>
-          <MoreButton :label="`${category.name}`" :category="category.name"/>
+          <MoreButton :label="`${category.r_name}`" :category="category.name"/>
         </div>
     </div>
   </section>
