@@ -12,7 +12,10 @@
         <div class="cards">
           <h4>Produits disponibles</h4>
           <ul >
-            <li v-for="item in category.items" :key="item" class="food__items">{{ item }} <span> <ComponentCart /></span></li>
+            <li v-for="(item, index) in category.items" 
+              :key="index" class="food__items">{{ typeof item === 'object' ? item.name : item }}
+              <span> <ConfirmView :itemName="typeof item === 'object' ? item.name : item"/> </span>
+            </li>
           </ul>
         </div>
       </div>
@@ -27,6 +30,7 @@
 import { categoriesData } from '@/data/categoriesData';
 import NavBar from '../Landing/NavBar.vue';
 import ComponentCart from '../ComponentCart.vue';
+import ConfirmView from '../Order/ConfirmView.vue';
 
 export default {
   name: 'CategoryDetails',
@@ -38,6 +42,7 @@ export default {
   components:{
     NavBar,
     ComponentCart,
+    ConfirmView, 
   },
   mounted() {
     const categoryKey = this.$route.params.category;
@@ -55,7 +60,7 @@ export default {
 <style scoped>
 
 section{
-  padding: 1rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +112,7 @@ ul{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-height: 50vh;
+  max-height: none;
   overflow-y: auto;
 
 }
@@ -123,7 +128,7 @@ ul{
 span {
   color: #04471C;
   font-weight: 700;
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: right;
@@ -157,6 +162,7 @@ span {
   .card___container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: normal;
     gap: 3rem;
     
   }
@@ -175,8 +181,11 @@ span {
   }
   ul{
     padding-top: 1rem;
-    max-height: 40vh;
+    max-height: 90vh;
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
   .food__items{
     display: flex;
@@ -204,13 +213,13 @@ span {
   .card___container{
     display: grid;
     grid-template-columns: 1fr 1fr ;
-    gap: 3rem;
+    gap: 1rem;
   }
   .cards{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: normal;
     gap: 1rem;
     padding: 0.5rem;
   }
@@ -221,8 +230,11 @@ span {
     border-radius: 10px;
   }
   ul{
-    max-height: 40vh;
+    max-height: 90vh;
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
   }
   .food__items{
     display: flex;
@@ -236,15 +248,16 @@ span {
 @media (min-width: 1920px) {
   .card___container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 1fr ;
   }
   .cards{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: normal;
     gap: 1rem;
     padding: 0.5rem;
+    
   }
   img{
     background-size: cover;
@@ -255,8 +268,11 @@ span {
   ul{
     padding-top: 1rem;
     padding: 0.5rem;
-    max-height: 40vh;
+    max-height: 90vh;
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
   }
   .food__items{
     display: flex;

@@ -26,6 +26,7 @@
             <div class="cart-summary" v-if="cartItems.length > 0">
             <p>Total : {{ totalPrice }} €</p>
             <button @click="checkout">Passer commande</button>
+            <MainButton label="Passer commande" />
             </div>
         </div>
         </div>
@@ -33,39 +34,44 @@
 </template>
   
 <script>
+import MainButton from './MainButton.vue';
+
 export default {
-data() {
-    return {
-    showModal: false,
-    cartItems: [
-        { name: 'Lait entier', quantity: 2, price: 1.5 },
-        { name: 'Basilic', quantity: 1, price: 0.8 },
-    ],
-    };
-},
-computed: {
-    totalPrice() {
-    return this.cartItems
-        .reduce((total, item) => total + item.quantity * item.price, 0)
-        .toFixed(2);
+    data() {
+        return {
+        showModal: false,
+        cartItems: [
+            { name: 'Lait entier', quantity: 2, price: 1.5 },
+            { name: 'Basilic', quantity: 1, price: 0.8 },
+        ],
+        };
     },
-},
-methods: {
-    openModal() {
-    this.showModal = true;
+    computed: {
+        totalPrice() {
+        return this.cartItems
+            .reduce((total, item) => total + item.quantity * item.price, 0)
+            .toFixed(2);
+        },
     },
-    closeModal() {
-    this.showModal = false;
+    components:{
+        MainButton,
     },
-    removeItem(index) {
-    this.cartItems.splice(index, 1);
+    methods: {
+        openModal() {
+        this.showModal = true;
+        },
+        closeModal() {
+        this.showModal = false;
+        },
+        removeItem(index) {
+        this.cartItems.splice(index, 1);
+        },
+        checkout() {
+        alert('Commande passée !');
+        this.cartItems = [];
+        this.closeModal();
+        },
     },
-    checkout() {
-    alert('Commande passée !');
-    this.cartItems = [];
-    this.closeModal();
-    },
-},
 };
 </script>
   
@@ -94,12 +100,15 @@ align-items: center;
 z-index: 1000;
 }
 .modal-content {
-background: white;
-padding: 1rem;
-border-radius: 8px;
-width: 90%;
-max-width: 400px;
-position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
 }
 .close-btn {
 position: absolute;
