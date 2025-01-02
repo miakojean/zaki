@@ -7,23 +7,22 @@
         <div v-if="showModal" class="modal-overlay">
         <div class="modal-content">
             <button @click="closeModal" class="close-btn">X</button>
-            <h2>Votre Panier</h2>
+            <h3>Votre Panier</h3>
 
-            <div v-if="cartItems.length > 0" class="cart-items">
-            <div v-for="(item, index) in cartItems" :key="index" class="cart-item">
-                <div class="item-details">
-                <p>{{ item.name }}</p>
-                <p>{{ item.quantity }} x {{ item.price }} FCFA</p>
+            <div  class="cart-items">
+                <div  class="cart-item">
+                    <div class="item-details">
+                    <p>Oignon</p>
+                    <p>800 FCFA/Kg</p>
+                    
+                    </div>
+                    <button @click="removeItem(index)">Retirer</button>
                 </div>
-                <button @click="removeItem(index)">Retirer</button>
-            </div>
             </div>
             
-            <div v-else class="empty-cart">
-            <p>Votre panier est vide.</p>
-            </div>
+            
 
-            <div class="cart-summary" v-if="cartItems.length > 0">
+            <div class="cart-summary" >
             <p>Total : {{ totalPrice }} €</p>
             <button @click="checkout">Passer commande</button>
             <MainButton label="Passer commande" />
@@ -40,18 +39,7 @@ export default {
     data() {
         return {
         showModal: false,
-        cartItems: [
-            { name: 'Lait entier', quantity: 2, price: 1.5 },
-            { name: 'Basilic', quantity: 1, price: 0.8 },
-        ],
         };
-    },
-    computed: {
-        totalPrice() {
-        return this.cartItems
-            .reduce((total, item) => total + item.quantity * item.price, 0)
-            .toFixed(2);
-        },
     },
     components:{
         MainButton,
@@ -62,14 +50,6 @@ export default {
         },
         closeModal() {
         this.showModal = false;
-        },
-        removeItem(index) {
-        this.cartItems.splice(index, 1);
-        },
-        checkout() {
-        alert('Commande passée !');
-        this.cartItems = [];
-        this.closeModal();
         },
     },
 };
@@ -90,19 +70,21 @@ export default {
 .modal-overlay {
 position: fixed;
 top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 .modal-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     background: white;
     padding: 1rem;
     border-radius: 8px;
@@ -111,32 +93,45 @@ z-index: 1000;
     position: relative;
 }
 .close-btn {
-position: absolute;
-top: 10px;
-right: 10px;
-background: none;
-border: none;
-font-size: 1.2rem;
-cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 50%;
+    width: 30px;
+    color: #f3f3f3;
+    padding: 0.6rem;
 }
 
 /* Responsiveness */
-.cart-item {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 0.5rem;
+.cart-items {
+    display: flex;
+    justify-content:space-around;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    /*border: 1px solid #058C42;*/
 }
-.item-details p {
-margin: 0;
+
+.yes, .non{
+    background-color: #058C42;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    width: 75px;
 }
-.empty-cart {
-text-align: center;
-color: #888;
+
+.non{
+    background-color: gray;
 }
-.cart-summary {
-text-align: center;
-}
+
 i{
     font-size: 1.5rem;
     color: #058C42;
@@ -147,5 +142,4 @@ i:hover{
     color: #058C42;
     cursor: pointer;
 }
-
 </style>

@@ -225,15 +225,15 @@ span {
   }
   img{
     background-size: cover;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 320px;
+    max-height: 320px;
     border-radius: 10px;
   }
   ul{
     max-height: 90vh;
     overflow-y: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
   .food__items{
