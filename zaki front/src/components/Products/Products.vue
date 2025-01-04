@@ -30,12 +30,15 @@
     <div v-else>
       <p>Catégorie non trouvée. <router-link to="/">Retour à l'accueil</router-link></p>
     </div>
+    <!--
+    
     <div v-if="clickedItems.length > 0">
       <h4>Produits ajoutés :</h4>
       <ul>
         <li v-for="(item, index) in clickedItems" :key="index">{{ item.name }}</li>
       </ul>
     </div>
+    -->
   </section>
 </template>
 
@@ -299,7 +302,7 @@ span {
   }
   .food__items{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     width: 100%;

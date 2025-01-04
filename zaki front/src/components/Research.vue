@@ -21,7 +21,7 @@
       v-if="isSearching && filteredResults.length"
     >
       <ul>
-        <li v-for="(result, index) in filteredResults" :key="index">
+        <li v-for="(result, index) in filteredResults" :key="index" @click="selectItem(result)">
           {{ result }}
         </li>
       </ul>
@@ -36,28 +36,29 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import { categoriesData } from "@/data/categoriesData";
+import { ref } from 'vue';
+import { categoriesData } from '@/data/categoriesData'; // Adjust the import path as needed
 
 export default {
+  name: 'Research',
   setup() {
-    const searchQuery = ref("");
+    const searchQuery = ref('');
     const researchResults = ref(
-      Object.values(categoriesData).flatMap(category => category.items)
+      Object.values(categoriesData).flatMap(category => category.items.map(item => item.name))
     );
 
-    const filteredResults = ref(researchResults.value.slice(0, 5)); // Limite initiale à 5
-    const isSearching = ref(false); // Variable pour suivre l'état de recherche
+    const filteredResults = ref(researchResults.value.slice(0, 5)); // Initial limit to 5
+    const isSearching = ref(false); // Variable to track search state
 
     const filterResults = () => {
-      if (searchQuery.value.trim() === "") {
-        filteredResults.value = researchResults.value.slice(0, 5); // Limite à 5 éléments
+      if (searchQuery.value.trim() === '') {
+        filteredResults.value = researchResults.value.slice(0, 5); // Limit to 5 items
       } else {
         filteredResults.value = researchResults.value
           .filter(item =>
             item.toLowerCase().includes(searchQuery.value.toLowerCase())
           )
-          .slice(0, 5); // Limite à 5 éléments après filtrage
+          .slice(0, 5); // Limit to 5 items after filtering
       }
     };
 
@@ -67,6 +68,17 @@ export default {
       }, 200);
     };
 
+    const selectItem = (itemName) => {
+      const item = Object.values(categoriesData)
+        .flatMap(category => category.items)
+        .find(item => item.name === itemName);
+      if (item) {
+        EventBus.emit('add-to-cart', { ...item, quantity: 1 });
+        searchQuery.value = '';
+        filterResults();
+      }
+    };
+
     return {
       searchQuery,
       researchResults,
@@ -74,6 +86,7 @@ export default {
       isSearching,
       filterResults,
       handleBlur,
+      selectItem
     };
   },
 };

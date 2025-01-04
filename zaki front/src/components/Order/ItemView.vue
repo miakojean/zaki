@@ -4,22 +4,22 @@
             <h3>{{ itemName }}</h3>
         </div>
         <div class="details">
-            <p>Prix : {{ itemPrice }} FCFA</p>
-            <InputGroup 
-                label="Quantité"
-                type="Number"
-                name="Quantité"
-                placeholder="Quantité en Kg"
-                id="quantity"
-                :value="itemQuantity"
-                @input="$emit('update-quantity', $event.target.value)"
+            <p>Prix : {{ itemPrice }} FCFA /Kg</p>
+            <InputOrder 
+                label="Quantité" 
+                type="number" 
+                name="quantity" 
+                id="quantity" 
+                placeholder="Quantité" 
+                :modelValue="itemQuantity"
+                @update:modelValue="updateQuantity"
             />
         </div>
     </div>
 </template>
 
 <script>
-import InputGroup from '../Authentication/InputGroup.vue';
+import InputOrder from './inputOrder.vue';
 
 export default {
     name: 'ItemView',
@@ -38,7 +38,7 @@ export default {
         },
     },
     components:{
-        InputGroup
+        InputOrder
     },
     methods: {
         updateQuantity(value) {

@@ -134,10 +134,10 @@ top: 0;
     font-weight: 700;
     cursor: pointer;
     background-color: red;
-    border-radius: 50%;
+    border-radius: 5%;
     width: 30px;
     color: #f3f3f3;
-    padding: 0.6rem;
+    padding: 0.4rem;
 }
 
 /* Responsiveness */
@@ -191,4 +191,4 @@ i:hover{
     color: #058C42;
     cursor: pointer;
 }
-</style>, rends mon code plus propre.
+</style>,

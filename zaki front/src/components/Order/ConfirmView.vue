@@ -91,7 +91,7 @@ top: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     background: white;
     padding: 1rem;
     border-radius: 8px;
@@ -109,10 +109,9 @@ top: 0;
     font-weight: 700;
     cursor: pointer;
     background-color: red;
-    border-radius: 50%;
     width: 30px;
     color: #f3f3f3;
-    padding: 0.6rem;
+    padding: 0.4rem;
 }
 
 /* Responsiveness */
