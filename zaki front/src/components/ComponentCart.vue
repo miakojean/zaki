@@ -9,24 +9,25 @@
             <button @click="closeModal" class="close-btn">X</button>
             <h3>Votre Panier</h3>
 
-            <div  class="cart-items">
-                <div  class="cart-item">
-                    <div class="item-details">
-                    <p>Oignon</p>
-                    <p>800 FCFA/Kg</p>
-                    
-                    </div>
-                    <button @click="removeItem(index)">Retirer</button>
-                </div>
+            <div class="cart-items">
+                <ItemView 
+                    v-for="(item, index) in cartItems" 
+                    :key="index" 
+                    :itemName="item.name"
+                    :itemQuantity = "item.quantity"
+                    :itemPrice = "item.price"
+                    @update-quantity="updateQuantity(index, $event)"
+                    @remove-item="removeItem"
+                />
             </div>
-            
-            
 
             <div class="cart-summary" >
-            <p>Total : {{ totalPrice }} €</p>
-            <button @click="checkout">Passer commande</button>
-            <MainButton label="Passer commande" />
+                <p>Total : {{ totalPrice }} FCFA</p>
+            
             </div>
+            
+            <MainButton label="Passer commande" />
+
         </div>
         </div>
     </div>
@@ -34,15 +35,32 @@
   
 <script>
 import MainButton from './MainButton.vue';
+import ItemView from './Order/ItemView.vue';
+import { EventBus } from '@/data/eventBus';
 
 export default {
     data() {
         return {
         showModal: false,
+        cartItems: [],
         };
     },
     components:{
         MainButton,
+        ItemView,
+    },
+    computed: {
+        totalPrice() {
+        return this.cartItems
+            .reduce((total, item) => total + item.quantity * item.price, 0)
+            .toFixed(2);
+        },
+    },
+    created() {
+        EventBus.on('add-to-cart', this.addToCart);
+    },
+    beforeDestroy () {
+        EventBus.off('add-to-cart', this.addToCart);
     },
     methods: {
         openModal() {
@@ -50,6 +68,20 @@ export default {
         },
         closeModal() {
         this.showModal = false;
+        },
+        addToCart(item) {
+            const existingItem = this.cartItems.find(cartItem => cartItem.name === item.name);
+            if (existingItem) {
+                existingItem.quantity += item.quantity;
+            } else {
+                this.cartItems.push(item);
+            }
+        },
+        removeItem(item) {
+            this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+        },
+        updateQuantity(index, quantity) {
+            this.cartItems[index].quantity = quantity;
         },
     },
 };
@@ -61,8 +93,8 @@ export default {
     background-color: none;
     color: #058C42;
     border: none;
-    padding: 0.5rem 1rem;
     cursor: pointer;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
 }
 
@@ -111,11 +143,28 @@ top: 0;
 /* Responsiveness */
 .cart-items {
     display: flex;
-    justify-content:space-around;
+    flex-direction: column;
+    justify-content:center;
     gap: 1rem;
     margin-bottom: 0.5rem;
     width: 100%;
     /*border: 1px solid #058C42;*/
+}
+
+.cart-items{
+    margin: 0;
+    padding: 0;
+}
+
+.items{
+    display: flex;
+    border: 1px solid #058C42;
+    width: 100%;
+}
+
+span {
+    display: flex;
+    flex-direction: column;
 }
 
 .yes, .non{
@@ -142,4 +191,4 @@ i:hover{
     color: #058C42;
     cursor: pointer;
 }
-</style>
+</style>, rends mon code plus propre.

@@ -13,8 +13,15 @@
           <h4>Produits disponibles</h4>
           <ul >
             <li v-for="(item, index) in category.items" 
-              :key="index" class="food__items">{{ typeof item === 'object' ? item.name : item }}
-              <span> <ConfirmView :itemName="typeof item === 'object' ? item.name : item"/> </span>
+              :key="index" class="food__items"
+            >
+              {{ typeof item === 'object' ? item.name : item }}
+              <span> 
+                <ConfirmView
+                :itemName="typeof item === 'object' ? 
+                item.name : item" 
+                :onConfirm="() => logItem(item)"/> 
+              </span>
             </li>
           </ul>
         </div>
@@ -22,6 +29,12 @@
     </div>
     <div v-else>
       <p>Catégorie non trouvée. <router-link to="/">Retour à l'accueil</router-link></p>
+    </div>
+    <div v-if="clickedItems.length > 0">
+      <h4>Produits ajoutés :</h4>
+      <ul>
+        <li v-for="(item, index) in clickedItems" :key="index">{{ item.name }}</li>
+      </ul>
     </div>
   </section>
 </template>
@@ -31,12 +44,14 @@ import { categoriesData } from '@/data/categoriesData';
 import NavBar from '../Landing/NavBar.vue';
 import ComponentCart from '../ComponentCart.vue';
 import ConfirmView from '../Order/ConfirmView.vue';
+import { EventBus } from '@/data/eventBus';
 
 export default {
   name: 'CategoryDetails',
   data() {
     return {
       category: null,
+      clickedItems: [],
     };
   },
   components:{
@@ -53,6 +68,14 @@ export default {
       this.$router.push('/not-found');
     }
   },
+  methods: {
+    logItem(item){
+      this.clickedItems.push(item);
+      EventBus.emit('add-to-cart', item);
+      console.log(item);
+    },
+  },
+  
 };
 </script>
 

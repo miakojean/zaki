@@ -21,21 +21,23 @@
 <script>
 import ComponentCart from '../ComponentCart.vue';
 
-
-
 export default {
     name: "NavBar",
     mounted() {
-        const menuBtn = document.getElementById("menu-btn");
-        const navLinks = document.getElementById("nav-links");
+        const menuBtn = this.$refs.menuBtn;
+        const navLinks = this.$refs.navLinks;
 
-        menuBtn.addEventListener("click", () => {
-            navLinks.classList.toggle("open");
-        });
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener("click", () => {
+                navLinks.classList.toggle("open");
+            });
+        } else {
+            console.error("Les références menuBtn ou navLinks sont manquantes.");
+        }
     },
-    components:{
-      ComponentCart,
-    }
+    components: {
+        ComponentCart,
+    },
 };
 </script>
 

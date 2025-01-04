@@ -11,7 +11,7 @@
             <h4> {{ itemName }} </h4>
             <p> J'ajoute à mon panier? </p>
             <div class="cart-items">
-                <button class="yes">Oui</button>
+                <button @click="confirmItem" class="yes">Oui</button>
                 <button @click="closeModal" class="non">Non</button>
             </div>
         </div>
@@ -21,8 +21,7 @@
   
 <script>
 import MainButton from '../MainButton.vue';
-
-
+import { EventBus } from '@/data/eventBus';
 
 export default {
     name:'ConfirmView',
@@ -31,11 +30,16 @@ export default {
             type: String,
             required: true,
         },
+        onConfirm: {
+            type: Function,
+            required: true
+        }
     },
     data() {
         return {
             category: null,
             showModal: false,
+            panier: [],       
         };
     },
     components:{
@@ -44,11 +48,15 @@ export default {
     methods: {
         openModal() {
         this.showModal = true;
-        console.log('Vous avez cliqué sur le bouton');
-        },
+        },        
         closeModal() {
         this.showModal = false;
         },
+        confirmItem() {
+        this.onConfirm();
+        EventBus.emit('add-to-cart', { name: this.itemName, quantity: 1, price: 700 }); // Example price
+        this.closeModal();
+        }
        
     },
 };
