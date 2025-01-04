@@ -47,15 +47,15 @@ export default {
     },
     methods: {
         openModal() {
-        this.showModal = true;
+            this.showModal = true;
         },        
         closeModal() {
-        this.showModal = false;
+            this.showModal = false;
         },
         confirmItem() {
-        this.onConfirm();
-        EventBus.emit('add-to-cart', { name: this.itemName, quantity: 1, price: 700 }); // Example price
-        this.closeModal();
+            this.onConfirm();
+            EventBus.emit('add-to-cart', { name: this.itemName}); // Example price
+            this.closeModal();
         }
        
     },

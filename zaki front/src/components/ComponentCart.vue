@@ -51,11 +51,14 @@ export default {
     },
     computed: {
         totalPrice() {
-        return this.cartItems
-            .reduce((total, item) => total + item.quantity * item.price, 0)
-            .toFixed(2);
+            let totalPrice = 0;
+            this.cartItems.forEach(item => {
+                totalPrice += item.quantity * item.price;
+            });
+            return totalPrice.toFixed(2);
         },
     },
+
     created() {
         EventBus.on('add-to-cart', this.addToCart);
     },
@@ -72,7 +75,7 @@ export default {
         addToCart(item) {
             const existingItem = this.cartItems.find(cartItem => cartItem.name === item.name);
             if (existingItem) {
-                existingItem.quantity += item.quantity;
+                this.cartItems.push()
             } else {
                 this.cartItems.push(item);
             }

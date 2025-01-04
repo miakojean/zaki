@@ -74,8 +74,7 @@ export default {
   methods: {
     logItem(item){
       this.clickedItems.push(item);
-      EventBus.emit('add-to-cart', item);
-      console.log(item);
+      EventBus.emit('add-to-cart', item); /* Je declenche un évènement nommé 'add-to-cart' puis je passe un objet item en tant que donnée associée à l'évènement */
     },
   },
   
