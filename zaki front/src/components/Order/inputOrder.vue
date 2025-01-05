@@ -36,11 +36,11 @@
       },
       placeholder: {
         type: String,
-        default: "",
+        default: "Entre quantité",
       },
       modelValue: {
-        type: String,
-        default: "",
+        type: Number,
+        default: 0,
       },
       required: {
         type: Boolean,

@@ -2,6 +2,7 @@
     <div class="ItemView">
         <div class="pic">
             <h3>{{ itemName }}</h3>
+            <i @click="removeItem" class="ri-delete-bin-6-line"></i>
         </div>
         <div class="details">
             <p>Prix : {{ itemPrice }} FCFA /Kg</p>
@@ -13,6 +14,7 @@
                 placeholder="Quantité" 
                 :modelValue="itemQuantity"
                 @update:modelValue="updateQuantity"
+                @remove-item="removeItem"
             />
         </div>
     </div>
@@ -29,7 +31,7 @@ export default {
             required: true,
         },
         itemQuantity:{
-            type: String,
+            type: Number,
             required: true,
         },
         itemPrice: {
@@ -43,6 +45,9 @@ export default {
     methods: {
         updateQuantity(value) {
             this.$emit('update-quantity', Number(value));
+        },
+        removeItem() {
+            this.$emit('remove-item');
         }
     },
     data() {
@@ -62,6 +67,19 @@ export default {
     align-items: normal;
     gap: 0.2rem;
     border-bottom: 1px solid gray;
+}
+
+.pic{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+i{
+    color: red;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 h3 {

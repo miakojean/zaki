@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Bouton pour ouvrir la modale -->
-        <i @click="openModal" class="ri-shopping-cart-2-line"></i>
+        <i @click="openModal" class="ri-shopping-cart-2-line"><span>{{ itemLength }}</span></i>
 
         <!-- Modale -->
         <div v-if="showModal" class="modal-overlay">
@@ -17,7 +17,7 @@
                     :itemQuantity = "item.quantity"
                     :itemPrice = "item.price"
                     @update-quantity="updateQuantity(index, $event)"
-                    @remove-item="removeItem"
+                    @remove-item="removeItem(index)"
                 />
             </div>
 
@@ -57,6 +57,9 @@ export default {
             });
             return totalPrice.toFixed(2);
         },
+        itemLength() {
+            return this.cartItems.length;
+        }
     },
 
     created() {
@@ -68,6 +71,7 @@ export default {
     methods: {
         openModal() {
         this.showModal = true;
+        this.loadCartItems();
         },
         closeModal() {
         this.showModal = false;
@@ -79,13 +83,34 @@ export default {
             } else {
                 this.cartItems.push(item);
             }
+            this.saveCartItems();
         },
-        removeItem(item) {
-            this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+        removeItem(index) {
+            this.cartItems.splice(index, 1);
+            this.saveCartItems();
         },
         updateQuantity(index, quantity) {
             this.cartItems[index].quantity = quantity;
+            this.saveCartItems();
         },
+        saveCartItems() {
+            localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+        },
+        loadCartItems() {
+            const savedCartItems = localStorage.getItem('cartItems');
+            if (savedCartItems) {
+                this.cartItems = JSON.parse(savedCartItems);
+            }
+        },
+    },
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.loadCartItems();
+        });
+    },
+    beforeRouteUpdate(to, from, next) {
+        this.loadCartItems();
+        next();
     },
 };
 </script>
@@ -184,8 +209,12 @@ span {
     background-color: gray;
 }
 
-i{
+i{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
+    font-weight: 800;
     color: #058C42;
     cursor: pointer;
     transition: 0.4s ease-in-out;
@@ -193,5 +222,15 @@ i{
 i:hover{
     color: #058C42;
     cursor: pointer;
+}
+
+i span{
+    background: red;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    padding: 0.1rem;
+    border-radius: 50%;
 }
 </style>,
