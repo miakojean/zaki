@@ -1,6 +1,7 @@
 from rest_framework import serializers 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from .models import Order
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -39,3 +40,19 @@ class LoginSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
+    
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['user', 'product', 'total_price']
+
+    def create(self, validated_data):
+        try:
+            order = Order.objects.create(
+                user=validated_data['user'],
+                product=validated_data['product'],
+                total_price=validated_data['total_price']
+            )
+            return order
+        except Exception as e:
+            raise serializers.ValidationError({"error": str(e)})
