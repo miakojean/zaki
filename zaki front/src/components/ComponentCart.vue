@@ -26,7 +26,7 @@
             
             </div>
             
-            <MainButton label="Passer commande" />
+            <MainButton @click="submitOrder" label="Passer commande" />
 
         </div>
         </div>
@@ -37,6 +37,7 @@
 import MainButton from './MainButton.vue';
 import ItemView from './Order/ItemView.vue';
 import { EventBus } from '@/data/eventBus';
+import axios from "axios";
 
 export default {
     data() {
@@ -102,6 +103,38 @@ export default {
                 this.cartItems = JSON.parse(savedCartItems);
             }
         },
+        async submitOrder() {
+        // Construction du JSON
+        const order = {
+            user_id: 3, // Remplacez par l'ID utilisateur si nécessaire
+            status: "pending",
+            paiement_method: "A la livraison",
+            total_price: parseFloat(this.totalPrice), // Convertir en nombre
+            items: this.cartItems.map(item => ({
+                product: item.id, // Assurez-vous que `item.id` existe
+                quantity: item.quantity,
+                total_price: parseFloat((item.quantity * item.price).toFixed(2))
+            }))
+        };
+
+        try {
+            // Envoi de la requête à l'API avec Axios
+            const response = await axios.post("http://127.0.0.1:8000/zakiapi/orders/create/", order, {
+                headers: {
+                    "Content-Type": "application/json",
+                    // Ajoutez un jeton si nécessaire
+                    // "Authorization": `Bearer ${token}`
+                },
+            });
+            console.log("Commande créée avec succès :", response.data);
+            this.cartItems = []; // Vider le panier après une commande réussie
+            this.saveCartItems(); // Mettre à jour le stockage local
+            this.closeModal(); // Fermer la modale
+        } catch (error) {
+            console.error("Erreur lors de la création de la commande :", error.response?.data || error.message);
+        }
+}
+
     },
     beforeRouteEnter(to, from, next) {
         next(vm => {

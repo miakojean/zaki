@@ -1,43 +1,43 @@
 <template>
-    <nav>
-      <div class="nav__logo"><a href="#">ZAKI</a></div>
-      <ul class="nav__links" id="nav-links">
-        <li class="link"><router-link to="/">Accueil</router-link></li>
-        <li class="link"><router-link to="/product">Produits</router-link></li>
-        <li class="link"><a href="#contact">Commander</a></li>
-        <li class="link"><a href="newsletter.html">Newsletter</a></li>
-      </ul>
-      <div class="nav__log">
-        <li class="link"><router-link to="/login">Connexion</router-link></li>
-        <li id="member" class="link"><router-link to="/Registration">Devenir partenaire zaki</router-link></li>
-      </div>
-      <ComponentCart />
-      <div class="nav__menu__btn" id="menu-btn">
-        <span><i class="ri-menu-3-line"></i></span>
-      </div>
-    </nav>
+  <nav>
+    <div class="nav__logo"><a href="#">ZAKI</a></div>
+    <ul class="nav__links" id="nav-links" ref="navLinks">
+      <li class="link"><router-link to="/">Accueil</router-link></li>
+      <li class="link"><router-link to="/product">Produits</router-link></li>
+      <li class="link"><a href="#contact">Commander</a></li>
+      <li class="link"><a href="newsletter.html">Newsletter</a></li>
+    </ul>
+    <div class="nav__log">
+      <li class="link"><router-link to="/login">Connexion</router-link></li>
+      <li id="member" class="link"><router-link to="/Registration">Devenir partenaire zaki</router-link></li>
+    </div>
+    <ComponentCart />
+    <div class="nav__menu__btn" id="menu-btn" ref="menuBtn">
+      <span><i class="ri-menu-3-line"></i></span>
+    </div>
+  </nav>
 </template>
 
 <script>
 import ComponentCart from '../ComponentCart.vue';
 
 export default {
-    name: "NavBar",
-    mounted() {
-        const menuBtn = this.$refs.menuBtn;
-        const navLinks = this.$refs.navLinks;
+  name: "NavBar",
+  mounted() {
+      const menuBtn = this.$refs.menuBtn;
+      const navLinks = this.$refs.navLinks;
 
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener("click", () => {
-                navLinks.classList.toggle("open");
-            });
-        } else {
-            console.error("Les références menuBtn ou navLinks sont manquantes.");
-        }
-    },
-    components: {
-        ComponentCart,
-    },
+      if (menuBtn && navLinks) {
+          menuBtn.addEventListener("click", () => {
+              navLinks.classList.toggle("open");
+          });
+      } else {
+          console.error("Les références menuBtn ou navLinks sont manquantes.");
+      }
+  },
+  components: {
+      ComponentCart,
+  },
 };
 </script>
 

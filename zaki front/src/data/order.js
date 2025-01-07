@@ -13,3 +13,16 @@ const order = {
         }
     ]
 }
+
+const orders = {
+    userId: [Number, String],
+    status: String,
+    paiementMethod: String,
+    items: [
+        {
+            product: Number,
+            quantity: Number,
+            totalPrice: Number,
+        }
+    ]
+}
