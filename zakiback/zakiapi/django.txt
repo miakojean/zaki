@@ -1,0 +1,6 @@
+Champs pour les relations¶
+Django définit aussi un ensemble de champs représentant les relations.
+
+ForeignKey¶
+class ForeignKey(to, on_delete, **options)[source]¶
+Une relation plusieurs-à-un. Exige deux paramètres : la classe à laquelle le modèle est lié et l’option on_delete:

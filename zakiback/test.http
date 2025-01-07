@@ -1,10 +1,17 @@
+### Create Order
 POST http://127.0.0.1:8000/zakiapi/orders/create/
 Content-Type: application/json
 
 {
-    "user": "3",
-    "product": "1",
-    "total_price": 10000,
-    "paiement_method": "wave",
-    "status": "pending"
+    "user_id": 3,
+    "status": "pending",
+    "paiement_method": "A la livraison",
+    "total_price": 100.00,
+    "items": [
+        {"product": 1, "quantity": 2, "total_price": 40.00},
+        {"product": 2, "quantity": 1, "total_price": 20.00}
+    ]
 }
+
+### Get Orders
+GET http://127.0.0.1:8000/zakiapi/orders/
