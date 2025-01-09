@@ -82,7 +82,7 @@ export default {
         maxstep: 2,
         user_id: null,
         user_name: "",
-        paiement_method: "A la livraison",
+        paiement_method: " A la livraison",
     }
     },
     components:{

@@ -29,7 +29,8 @@
         type: Array,
         default: () => [
           { value: "A la livraison", label: "A la livraison" },
-          { value: "wave", label: "Wave" },
+          { value: "wave", label: "Wave" },{ value: "Orange Money", label:"Orange Money"},
+          { value: "Mtn Money", label:"Mtn Money"},{ value: "Moov Money", label:"Moov Money"},
         ],
       },
       modelValue: {

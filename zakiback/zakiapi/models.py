@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -28,7 +27,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    user_name = models.CharField(max_length=100, null=True, blank=True) 
+    user_name = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(
@@ -38,15 +37,31 @@ class Order(models.Model):
     )
     paiement_method = models.CharField(
         max_length=20,
-        choices=[('A la livraison', 'A la livraison'), ('wave', 'wave')],
+        choices=[('A la livraison', 'A la livraison'), ('wave', 'wave'), ('Orange Money', 'Orange Money'),
+                 ('Mtn Money', 'Mtn Money'), ('Moov money', 'Moov money')],
         default='A la livraison'
     )
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    
+    invoice_number = models.CharField(max_length=10, unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.invoice_number:
+            last_order = Order.objects.order_by('id').last()
+            if last_order and last_order.invoice_number:
+                try:
+                    last_number = int(last_order.invoice_number[2:])
+                    new_number = f"AA{last_number + 1:03}"
+                except ValueError:
+                    new_number = "AA001"
+            else:
+                new_number = "AA001"
+            self.invoice_number = new_number
+        super().save(*args, **kwargs)
+
     def __str__(self):
         user_display = self.user.username if self.user else self.user_name or 'Guest'
-        return f"Commande {self.id} de {user_display} effectuée le {self.created_at.strftime('%d/%m/%Y')}"
-    
+        return f"Commande {self.invoice_number} de {user_display} effectuée le {self.created_at.strftime('%d/%m/%Y')}"
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
@@ -55,9 +70,8 @@ class OrderItem(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def save(self, *args, **kwargs):
-        # Calcul automatique du prix total
         self.total_price = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.quantity} Kg de {self.product.name} pour la {self.order}"
+        return f"{self.quantity} unité(s) de {self.product.name} pour la commande {self.order.invoice_number}"
