@@ -28,6 +28,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user_name = models.CharField(max_length=100, null=True, blank=True) 
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(
@@ -41,8 +42,10 @@ class Order(models.Model):
         default='A la livraison'
     )
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    
     def __str__(self):
-        return f"Commande {self.id} de {self.user.username if self.user else 'Guest'} effectuée le {self.created_at.strftime('%d/%m/%Y')}"
+        user_display = self.user.username if self.user else self.user_name or 'Guest'
+        return f"Commande {self.id} de {user_display} effectuée le {self.created_at.strftime('%d/%m/%Y')}"
     
 
 class OrderItem(models.Model):

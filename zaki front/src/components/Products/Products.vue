@@ -7,6 +7,7 @@
         <p>{{ category.description }}</p>
       </header>
       <div class="custom-head-divider"></div>
+      
       <div class="card___container">
         <img :src="category.image" :alt="`Image de ${category.name}`" class="category-image" />
         <div class="cards">

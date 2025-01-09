@@ -1,0 +1,9 @@
+Ce que je dois mettre dans mon ordre.
+
+Qu'est-ce que mon Back-end attend?
+
+Il attend:
+- User_id ou un nom quelconque
+- Le statut c'est nous qui le faisons
+- Le total de la commande
+- Les items: C'est un tableau qui va prendre {une id, la quantité, le prix de l'item}

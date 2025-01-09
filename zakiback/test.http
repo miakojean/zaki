@@ -3,13 +3,14 @@ POST http://127.0.0.1:8000/zakiapi/orders/create/
 Content-Type: application/json
 
 {
-    "user_id": 3,
+    "user_id": 2,
+    "user_name": "Franck",
     "status": "pending",
-    "paiement_method": "A la livraison",
+    "paiement_method": "wave",
     "total_price": 100.00,
     "items": [
-        {"product": 1, "quantity": 2, "total_price": 40.00},
-        {"product": 2, "quantity": 1, "total_price": 20.00}
+        {"product": 1, "quantity": 2, "total_price": 1400.00},
+        {"product": 2, "quantity": 1, "total_price": 1400.00}
     ]
 }
 

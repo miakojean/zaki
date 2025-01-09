@@ -66,7 +66,7 @@ export default {
     grid-template-columns: 1fr 1fr;
     align-items: normal;
     gap: 0.2rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid gray;
 }
 
 .pic{
@@ -78,8 +78,15 @@ export default {
 i{
     color: red;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    transition: 0.2s ease-in-out;
+}
+
+i:hover{
+    color: red;
+    transform: scaleY(1.5);
+    cursor: pointer;
 }
 
 h3 {
