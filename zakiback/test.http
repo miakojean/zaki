@@ -3,7 +3,6 @@ POST http://127.0.0.1:8000/zakiapi/orders/create/
 Content-Type: application/json
 
 {
-    "user_id": 1,
     "user_name": "Marie",
     "status": "pending",
     "paiement_method": "wave",

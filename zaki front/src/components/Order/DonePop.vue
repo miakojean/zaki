@@ -1,26 +1,41 @@
 <template>
 
-    <div class="card"> 
-    <button type="button" class="dismiss">x</button> 
+    <!--<div class="card"> -->
+    <!-- <button type="button" class="dismiss">x</button>  -->
     <div class="header"> 
         <div class="image">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#000000" d="M20 7L9.00004 18L3.99994 13"></path> </g></svg>
         </div> 
         <div class="content">
-            <span class="title">Order validated</span> 
-            <p class="message">Thank you for your purchase. you package will be delivered within 2 days of your purchase</p> 
+            <span class="title">{{title}}</span> 
+            <p class="message">{{ message }}</p> 
             </div> 
                 <div class="actions">
-                    <button type="button" class="history">History</button> 
-                    <button type="button" class="track">Track my package</button> 
+                    <button type="button" class="history">{{ details }}</button> 
+                    <button type="button" class="track">Suivre</button> 
                 </div> 
             </div> 
-    </div>
+    <!-- </div>-->
 
 </template>
 
 <script>
 export default {
+  name: 'DonePop',
+  props:{
+    title:{
+      type: String,
+      required: true,
+    },
+    message:{
+      type: String,
+      required: true,
+    },
+    details:{
+      type: String,
+      required: true,
+    }
+  }
 
 }
 </script>
@@ -29,8 +44,8 @@ export default {
     /* From Uiverse.io by ZstarPanda0210 */ 
 .card {
   overflow: hidden;
-  position: relative;
-  text-align: left;
+  /*position: relative;*/
+  text-align: center;
   border-radius: 0.5rem;
   max-width: 290px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -88,11 +103,19 @@ export default {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 0.75rem;
   text-align: center;
 }
 
 .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #066e29;
   font-size: 1rem;
   font-weight: 600;

@@ -45,13 +45,22 @@
                 </div>
             </div>
 
+            <div class="cart-items" v-if="step === 3">
+                <DonePop 
+                    title="Commande validée"
+                    message="Merci pour votre achat. Votre colis sera livré dans un délai de 2 jours après votre achat"
+                    details="Ma commande"
+                />
+
+            </div>
+
             <div class="cart-summary" >
                 <p>Total : {{ totalPrice }} FCFA</p>
             
             </div>
 
             <MoreButton v-if="step === 1"
-            label="Commander"
+            label="Poursuivre"
             @click="nextStep"
             />
 
@@ -72,6 +81,7 @@ import ItemView from './Order/ItemView.vue';
 import { EventBus } from '@/data/eventBus';
 import axios from "axios";
 import SelecTools from './tools/selecTools.vue';
+import DonePop from './Order/DonePop.vue';
 
 export default {
     data() {
@@ -79,7 +89,7 @@ export default {
         showModal: false,
         cartItems: [],
         step: 1,
-        maxstep: 2,
+        maxstep: 3,
         user_id: null,
         user_name: "",
         paiement_method: " A la livraison",
@@ -90,7 +100,8 @@ export default {
         ItemView,
         InputGroup,
         MoreButton,
-        SelecTools
+        SelecTools,
+        DonePop
     },
     computed: {
         totalPrice() {
@@ -170,8 +181,7 @@ export default {
         async submitOrder() {
         // Construction du JSON
         const order = {
-            user_id: this.user_id, // Remplacez par l'ID utilisateur si nécessaire
-            user_name: this.user_name, // Le nom de l'utilisateur
+            user_name: this.user_name || null, // Fournir un nom si user_id est absent
             status: "pending",
             paiement_method: this.paiement_method,
             total_price: parseFloat(this.totalPrice), // Convertir en nombre
@@ -194,10 +204,15 @@ export default {
             console.log("Commande créée avec succès :", response.data);
             this.cartItems = []; // Vider le panier après une commande réussie
             this.saveCartItems(); // Mettre à jour le stockage local
-            this.closeModal(); // Fermer la modale
-            this.step = 1; // Réinitialiser l'étape
+            this.step = this.maxstep; // Afficher le message de confirmation
         } catch (error) {
-            console.error("Erreur lors de la création de la commande :", error.response?.data || error.message);
+            if (error.response) {
+                console.error("Erreur API :", error.response.data);
+            } else if (error.request) {
+                console.error("Aucune réponse du serveur :", error.request);
+            } else {
+                console.error("Erreur inconnue :", error.message);
+            }
         }
 }
 

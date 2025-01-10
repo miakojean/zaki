@@ -74,7 +74,11 @@ class OrderSerializer(serializers.ModelSerializer):
         elif user_name:
             validated_data['user_name'] = user_name
         else:
-            raise serializers.ValidationError({"user": "Either user_id or user_name must be provided."})
+            # Handle the case where neither user_id nor user_name is provided
+            # For example, you can create an anonymous user or set a default user
+            anonymous_user = User.objects.get_or_create(username='anonymous')[0]
+            validated_data['user'] = anonymous_user
+
 
         order = Order.objects.create(**validated_data)
 
