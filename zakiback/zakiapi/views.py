@@ -51,3 +51,16 @@ class CreateOrderView(APIView):
             except serializers.ValidationError as e:
                 return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class OrderSearchView(APIView):
+    def post(self, request):
+        serializer = OrderSearchSerializer(data=request.data)
+        if serializer.is_valid():
+            # Effectuer la recherche
+            results = serializer.search()
+            if results.exists():
+                # Retourner les résultats
+                data = OrderSerializer(results, many=True).data
+                return Response(data, status=status.HTTP_200_OK)
+            return Response({"message": "Numero de commande ou nom incorrect"}, status=status.HTTP_404_NOT_FOUND)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

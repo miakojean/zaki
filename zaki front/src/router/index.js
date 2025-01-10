@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '@/views/LandingPage.vue';
 import ResearchPage from '@/views/ResearchPage.vue';
-import OrderView from '@/views/OrderView.vue';
 import LoginView from '@/views/LoginView.vue';
 import Registration from '@/views/Registration.vue';
 import Products from '@/components/Products/Products.vue';
-import { categoriesData } from '@/data/categoriesData';
+import OrderSection from '@/components/Order/OrderSection.vue';
 
 const routes = [
     {
@@ -26,7 +25,7 @@ const routes = [
     {
         path: '/Order',
         name: 'OrderView',
-        component: OrderView,
+        component: OrderSection,
     },
     {
         path: '/Basket',

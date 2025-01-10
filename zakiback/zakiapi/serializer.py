@@ -52,43 +52,70 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    items = OrderItemSerializer(many=True)
+    items = OrderItemSerializer(many=True, read_only = True)
     user_id = serializers.IntegerField(write_only=True, required=False)
     user_name = serializers.CharField(write_only=True, required=False)
 
     class Meta:
         model = Order
-        fields = ['user_id', 'user_name', 'status', 'paiement_method', 'total_price', 'items']
+        fields = ['user_id', 'user_name', 'status', 'paiement_method', 'total_price', 'items', 'created_at']
 
-    def create(self, validated_data):
-        items_data = validated_data.pop('items')
-        user_id = validated_data.pop('user_id', None)
-        user_name = validated_data.pop('user_name', None)
+        def create(self, validated_data):
+            items_data = validated_data.pop('items', [])
+            user_id = validated_data.pop('user_id', None)
+            user_name = validated_data.pop('user_name', None)
 
-        if user_id:
-            try:
-                user = User.objects.get(id=user_id)
-                validated_data['user'] = user
-            except User.DoesNotExist:
-                raise serializers.ValidationError({"user_id": "User not found."})
-        elif user_name:
-            validated_data['user_name'] = user_name
-        else:
-            # Handle the case where neither user_id nor user_name is provided
-            # For example, you can create an anonymous user or set a default user
-            anonymous_user = User.objects.get_or_create(username='anonymous')[0]
-            validated_data['user'] = anonymous_user
+            # Associer l'utilisateur ou un utilisateur anonyme
+            if user_id:
+                try:
+                    user = User.objects.get(id=user_id)
+                    validated_data['user'] = user
+                except User.DoesNotExist:
+                    raise serializers.ValidationError({"user_id": "User not found."})
+            elif user_name:
+                validated_data['user_name'] = user_name
+            else:
+                anonymous_user = User.objects.get_or_create(username='anonymous')[0]
+                validated_data['user'] = anonymous_user
+
+            # Créer la commande
+            order = Order.objects.create(**validated_data)
+
+            # Créer les items associés
+            for item_data in items_data:
+                product = item_data['product']
+                OrderItem.objects.create(
+                    order=order,
+                    product=product,
+                    quantity=item_data['quantity'],
+                    total_price=product.price * item_data['quantity']
+                )
+
+            return order
 
 
-        order = Order.objects.create(**validated_data)
+class OrderSearchSerializer(serializers.Serializer):
+    invoice_number = serializers.CharField(max_length=10, required=False)
+    user_name = serializers.CharField(max_length=100, required=False)
 
-        for item_data in items_data:
-            product = item_data['product']
-            OrderItem.objects.create(
-                order=order,
-                product=product,
-                quantity=item_data['quantity'],
-                total_price=product.price * item_data['quantity']
+    def validate(self, data):
+        if not data.get('invoice_number') and not data.get('user_name'):
+            raise serializers.ValidationError(
+                "Au moins un des champs 'invoice_number' ou 'user_name' doit être fourni."
             )
+        return data
 
-        return order
+    def search(self):
+        # Valider les données avant d'effectuer la recherche
+        validated_data = self.validated_data
+        invoice_number = validated_data.get('invoice_number')
+        user_name = validated_data.get('user_name')
+
+        # Effectuer la recherche
+        query = Order.objects.all()
+        if invoice_number:
+            query = query.filter(invoice_number=invoice_number)
+        if user_name:
+            query = query.filter(user_name__icontains=user_name)
+
+        return query
