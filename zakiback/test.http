@@ -1,17 +1,11 @@
 ### Create Order
-POST http://127.0.0.1:8000/zakiapi/orders/create/
+POST http://127.0.0.1:8000/zakiapi/orders/search/
 Content-Type: application/json
 
-{
-    "user_name": "Marie",
-    "status": "pending",
-    "paiement_method": "wave",
-    "total_price": 5000.00,
-    "items": [
-        {"product": 1, "quantity": 2, "total_price": 1400.00},
-        {"product": 2, "quantity": 1, "total_price": 700.00}
-    ]
-}
+
+    {
+    "invoice_number": "AA010"
+    }
 
 
 ### Get Orders
