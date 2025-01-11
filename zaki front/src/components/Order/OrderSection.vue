@@ -9,7 +9,12 @@
         Ci-dessous obtenez toutes les informations sur votre commande
       </p>
     </header>
-    <ResearchBox />
+    <ResearchBox 
+      v-model="searchCriteria"
+      placeholder="nom, numéro de commande"
+      type="Text"
+      id="research"
+    />
     <form @submit.prevent="searchOrder">
       <label for="searchCriteria">Critère de recherche :</label>
       <input

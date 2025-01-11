@@ -54,7 +54,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True, read_only = True)
     user_id = serializers.IntegerField(write_only=True, required=False)
-    user_name = serializers.CharField(write_only=True, required=False)
+    user_name = serializers.CharField(required=False)
 
     class Meta:
         model = Order

@@ -1,19 +1,19 @@
 <template>
     <div class="Box">
-        <div class="research__box">
+        <form @submit.prevent="searchOrder" action="" class="research__box">
             <input
-                type="text"
-                placeholder="Entrer votre nom, numéro de commande ou n° de tel"
+            :id= "id"
+            :type= "type"
+            placeholder="nom, numéro de commande ..."
             />
-            <i class="ri-search-line"></i>
-        </div>
+            <button type="submit"><i class="ri-search-line"></i></button>
+        </form>
+
         <div class="result__box">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+        <div v-if="loading">Chargement...</div>
+        <div v-if="error" class="error">{{ error }}</div>
+            <ul v-if="results.length > 0">
+                <li v-for="result in results" :key="result">{{ result }}</li>
             </ul>
         </div>
     </div>
@@ -22,7 +22,45 @@
 <script>
 export default {
     name: 'ResearchBox',
-
+    props:{
+        id:{
+            type: String,
+            required: true,
+            default: "research"
+        },
+        type:{
+            type:String,
+            required: true,
+            default:"text"
+        },
+        placeholder:{
+            type: String,
+            required: true,
+        },
+    },
+    data() {
+    return {
+      searchCriteria: '',
+      loading: false,
+      error: null,
+      results: []
+    };
+  },
+  methods: {
+    searchOrder() {
+      this.loading = true;
+      this.error = null;
+      // Simulate an API call
+      setTimeout(() => {
+        if (this.searchCriteria === 'error') {
+          this.error = 'An error occurred';
+        } else {
+          this.results = ['Order 1', 'Order 2', 'Order 3'];
+        }
+        this.loading = false;
+      }, 1000);
+    }
+  }
 }
 </script>
 
@@ -40,17 +78,25 @@ export default {
     width: 100%;
     max-width: 600px;
     display: flex;
-    padding: 0.5rem;
+    justify-content: center;
+    padding: 1rem 0 1rem 1rem;
     border: 1px solid #ccc;
     border-radius: 1rem;
+
 }
 
 input {
-    width: 100%;
+    width: 90%;
     border: none;
     outline: none;
     font-size: 1rem;
     font-weight: 500;
+}
+
+button{
+    width:20%;
+    background: none;
+    padding: 0;
 }
 
 .ri-search-line{
