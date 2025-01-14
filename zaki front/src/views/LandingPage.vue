@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .custom-divider {
     width: 100%; /* La ligne occupe toute la largeur */
     height: 2px; /* Épaisseur de la ligne */

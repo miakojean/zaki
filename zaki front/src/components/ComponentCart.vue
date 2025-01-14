@@ -8,7 +8,8 @@
         <div class="modal-content">
             <button @click="closeModal" class="close-btn">X</button>
             <h3 v-if="step===1">Votre Panier</h3>
-            <h3 v-if="step===2"> Vos informations</h3>
+            <p v-if="itemLength <= 0"> Panier est vide, ajouter des éléments.</p>
+            <h3 v-if="step===2"> Vos informations de livraison</h3>
 
             <div class="cart-items" v-if="step === 1">
                 <ItemView 
@@ -30,6 +31,24 @@
                     name="username"
                     placeholder="Entrer votre prenom"
                     v-model="user_name"
+                    
+                />
+                <InputGroup
+                    label="Zone de livraison"
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Entrer votre prenom"
+                    v-model="delivery_local"
+                    
+                />
+                <InputGroup
+                    label="Votre numéro"
+                    type="number"
+                    id="numero"
+                    name="number"
+                    placeholder="Entrer votre numéro"
+                    v-model="number"
                     
                 />
                 
@@ -59,7 +78,7 @@
             
             </div>
 
-            <MoreButton v-if="step === 1"
+            <MoreButton v-if="step === 1 && itemLength >= 1"
             label="Poursuivre"
             @click="nextStep"
             />
@@ -92,6 +111,8 @@ export default {
         maxstep: 3,
         user_id: null,
         user_name: "",
+        number: null,
+        delivery_local: "",
         paiement_method: " A la livraison",
     }
     },
@@ -367,7 +388,7 @@ i:hover{
 
 i span{
     background: red;
-    font-size: 1rem;
+    font-size: 0.6rem;
     color: white;
     cursor: pointer;
     transition: 0.4s ease-in-out;
@@ -392,5 +413,10 @@ select{
     border: 1px solid #058C42;
     width: 100%;
     font-size: 1rem;
+}
+
+.empty{
+    font-size: 2rem;
+    color: red;
 }
 </style>,

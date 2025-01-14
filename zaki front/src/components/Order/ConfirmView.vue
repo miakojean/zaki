@@ -109,9 +109,20 @@ top: 0;
     font-weight: 700;
     cursor: pointer;
     background-color: red;
+    border-radius: 5%;
     width: 30px;
     color: #f3f3f3;
     padding: 0.4rem;
+    transition: 0.2s ease-in-out;
+    
+    
+}
+
+.close-btn:hover{
+    background-color: red;;
+    color: #f3f3f3;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
 }
 
 /* Responsiveness */
@@ -132,6 +143,17 @@ top: 0;
     cursor: pointer;
     border-radius: 1rem;
     width: 75px;
+    transition: 0.4s ease-in-out;
+}
+
+.yes:hover, .non:hover{
+    background-color: #04471C;
+    color: white;
+}
+
+.non:hover{
+    background-color: #39443e;
+    color: white;
 }
 
 .non{

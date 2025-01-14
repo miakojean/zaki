@@ -1,10 +1,27 @@
 ### Create Order
-POST http://127.0.0.1:8000/zakiapi/orders/search/
+POST http://127.0.0.1:8000/zakiapi/orders/create/
 Content-Type: application/json
 
 
     {
-    "invoice_number": "AA014"
+        "user_name": "Allassane",
+        "status": "pending",
+        "paiement_method": "Orange Money",
+        "total_price": "7700.00",
+        "items": [
+        {
+            "product": 1,
+            "quantity": 5,
+            "total_price": "3500.00"
+        },
+        {
+            "product": 2,
+            "quantity": 6,
+            "total_price": "4200.00"
+        }
+        ],
+        "number": "+225 0777769581",
+        "delivery": "Treichville"
     }
 
 

@@ -47,7 +47,7 @@ export default {
     };
   },
   methods: {
-    searchOrder() {
+    async searchOrder() {
       this.loading = true;
       this.error = null;
       // Simulate an API call
@@ -64,7 +64,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .Box{
     width: 100%;
@@ -74,14 +74,14 @@ export default {
 }
 
 .research__box {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0 1rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 1rem;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 1rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
 
 }
 

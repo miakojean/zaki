@@ -30,6 +30,8 @@ class Order(models.Model):
     user_name = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
+    number = models.CharField(blank=True, max_length=20)
+    delivery = models.CharField(max_length=100, blank=True)
     status = models.CharField(
         max_length=20,
         choices=[('pending', 'Pending'), ('completed', 'Completed'), ('cancelled', 'Cancelled')],
