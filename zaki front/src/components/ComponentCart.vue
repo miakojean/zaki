@@ -6,10 +6,27 @@
         <!-- Modale -->
         <div v-if="showModal" class="modal-overlay" aria-hidden="false">
         <div class="modal-content">
-            <stepper />
+            
+            <div class="stepper-container">
+                <div class="step">
+                    <div class="circle"><i class="ri-shopping-cart-2-line"></i></div>
+                    <div class="label">Étape 1</div>
+                </div>
+                <div class="line" v-show="step>1"></div>
+                <div class="step" v-show="step>1">
+                    <div class="circle"><i class="ri-truck-line"></i></div>
+                    <div class="label">Étape 2</div>
+                </div>
+                <div class="line" v-show="step>2"></div>
+                <div class="step" v-show="step>2">
+                    <div class="circle">3</div>
+                    <div class="label">Étape 3</div>
+                </div>
+            </div>
+
             <button @click="closeModal" class="close-btn">X</button>
             <h3 v-if="step===1">Votre Panier</h3>
-            <p v-if="itemLength <= 0"> Panier est vide, ajouter des éléments.</p>
+            <p v-if="itemLength <= 0"> Panier vide, ajouter des éléments.</p>
             <h3 v-if="step===2"> Vos informations de livraison</h3>
 
             <div class="cart-items" v-if="step === 1">
@@ -79,7 +96,7 @@
             
             </div>
 
-            <MoreButton v-if="step === 1 && itemLength >= 1"
+            <MoreButton v-if="step === 1 && itemLength > 0"
             label="Poursuivre"
             @click="nextStep"
             />
@@ -421,5 +438,51 @@ select{
 .empty{
     font-size: 2rem;
     color: red;
+}
+
+.stepper-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f9fafe;
+    border: 2px solid #058C42;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #058C42;
+}
+
+.line {
+    width: 50px;
+    height: 4px;
+    background-color: #058C42;
+    margin: 0 5px;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.step.active .circle {
+    background-color: #058C42;
+    color: white;
 }
 </style>,

@@ -1,5 +1,5 @@
 <template>
-  <div class="stepper-container">
+    <div class="stepper-container">
         <div class="step active">
             <div class="circle">1</div>
             <div class="label">Étape 1</div>
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 :root {
     --primary-color: #058C42;
     --secondary-color: #f9fafe;
@@ -47,22 +47,22 @@ export default {
 }
 
 .circle {
-    width: var(--circle-size);
-    height: var(--circle-size);
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: var(--secondary-color);
-    border: 2px solid var(--primary-color);
+    background-color: #f9fafe;
+    border: 2px solid #058C42;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    color: var(--primary-color);
+    color: #058C42;
 }
 
 .line {
     width: 50px;
-    height: var(--line-width);
-    background-color: var(--primary-color);
+    height: 4px;
+    background-color: #058C42;
     margin: 0 5px;
     margin-bottom: 20px;
 }
@@ -70,11 +70,11 @@ export default {
 .label {
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-color);
+    color: #333333;
 }
 
 .step.active .circle {
-    background-color: var(--primary-color);
+    background-color: #058C42;
     color: white;
 }
 </style>
