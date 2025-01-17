@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,7 +138,6 @@ CORS_ALLOWED_ORIGINS = [
 # Optionnel: Si tu veux permettre toutes les origines (pas recommandé pour la production)
 # CORS_ALLOW_ALL_ORIGINS = True
 
-
 #REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
@@ -145,3 +145,6 @@ CORS_ALLOWED_ORIGINS = [
     #    'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     #]
 #}
+
+TELEGRAM_TOKEN = config("TELEGRAM_TOKEN")
+CHAT_ID = config("CHAT_ID")

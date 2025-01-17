@@ -6,6 +6,7 @@
         <!-- Modale -->
         <div v-if="showModal" class="modal-overlay" aria-hidden="false">
         <div class="modal-content">
+            <stepper />
             <button @click="closeModal" class="close-btn">X</button>
             <h3 v-if="step===1">Votre Panier</h3>
             <p v-if="itemLength <= 0"> Panier est vide, ajouter des éléments.</p>
@@ -101,6 +102,7 @@ import { EventBus } from '@/data/eventBus';
 import axios from "axios";
 import SelecTools from './tools/selecTools.vue';
 import DonePop from './Order/DonePop.vue';
+import Stepper from './tools/stepper.vue';
 
 export default {
     data() {
@@ -122,7 +124,8 @@ export default {
         InputGroup,
         MoreButton,
         SelecTools,
-        DonePop
+        DonePop,
+        Stepper
     },
     computed: {
         totalPrice() {
