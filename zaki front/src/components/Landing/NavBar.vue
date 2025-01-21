@@ -4,7 +4,7 @@
     <ul class="nav__links" id="nav-links" ref="navLinks">
       <li class="link"><router-link to="/">Accueil</router-link></li>
       <li class="link"><router-link to="/product">Produits</router-link></li>
-      <li class="link"><router-link to="/Order">Suivre mes commandes</router-link></li>
+      <li class="link"><router-link to="/Order">Suivre ma commande</router-link></li>
       <li class="link"><a href="newsletter.html">Newsletter</a></li>
     </ul>
     <div class="nav__log">

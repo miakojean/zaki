@@ -2,12 +2,13 @@
   <section class="category-details">
     <NavBar />
     <div v-if="category">
+      <sliderDraggable/>
       <header class="section__header">
         <h1>{{ category.r_name }}</h1>
         <p>{{ category.description }}</p>
       </header>
       <div class="custom-head-divider"></div>
-      
+      <div class="custom-head-divider"></div>
       <div class="card___container">
         <img :src="category.image" :alt="`Image de ${category.name}`" class="category-image" />
         <div class="cards">
@@ -31,15 +32,6 @@
     <div v-else>
       <p>Catégorie non trouvée. <router-link to="/">Retour à l'accueil</router-link></p>
     </div>
-    <!--
-    
-    <div v-if="clickedItems.length > 0">
-      <h4>Produits ajoutés :</h4>
-      <ul>
-        <li v-for="(item, index) in clickedItems" :key="index">{{ item.name }}</li>
-      </ul>
-    </div>
-    -->
   </section>
 </template>
 
@@ -49,6 +41,7 @@ import NavBar from '../Landing/NavBar.vue';
 import ComponentCart from '../ComponentCart.vue';
 import ConfirmView from '../Order/ConfirmView.vue';
 import { EventBus } from '@/data/eventBus';
+import SliderDraggable from './sliderDraggable.vue';
 
 export default {
   name: 'CategoryDetails',
@@ -61,7 +54,8 @@ export default {
   components:{
     NavBar,
     ComponentCart,
-    ConfirmView, 
+    ConfirmView,
+    SliderDraggable,
   },
   mounted() {
     const categoryKey = this.$route.params.category;
@@ -181,6 +175,21 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Divider */
+.custom-divider {
+    width: 100%; /* La ligne occupe toute la largeur */
+    height: 2px; /* Épaisseur de la ligne */
+    background: linear-gradient(to right, #345511, #6c757d); /* Dégradé pour un effet stylé */
+    margin: 2rem 0; /* Espace autour de la ligne */
+}
+
+.custom-divider-none {
+    width: 100%; /* La ligne occupe toute la largeur */
+    height: 2px; /* Épaisseur de la ligne */
+    background: none; /* Dégradé pour un effet stylé */
+    margin: 2rem 0; /* Espace autour de la ligne */
 }
 
 @media (min-width: 768px) {
