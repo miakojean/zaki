@@ -4,7 +4,7 @@ Content-Type: application/json
 
 
     {
-        "user_name": "Alice Ange Konan",
+        "user_name": "Antoinette",
         "status": "pending",
         "paiement_method": "Orange Money",
         "total_price": "7700.00",

@@ -76,7 +76,8 @@ class CreateOrderView(APIView):
                 logger = logging.getLogger(__name__)
                 logger.info(f"Notification envoyée : {message}")
                 return Response(
-                    {"message": "Commande créée avec succès.", "order_id": order.id},
+                    {"message": "Commande créée avec succès.", 
+                     "order_id": order.id, "numero de commande": order.invoice_number},
                     status=status.HTTP_201_CREATED
                 )
             except serializers.ValidationError as e:
@@ -90,7 +91,7 @@ class CreateOrderView(APIView):
         bot_token = settings.TELEGRAM_TOKEN  # Remplace par ton token Telegram
         chat_id = settings.CHAT_ID  # Remplace par l'ID de ton chat (ou du groupe)
         bot = Bot(token=bot_token)
-        bot.send_message(chat_id=chat_id, text=message)
+        bot.send_message(chat_id=chat_id, text=message) 
     
 class OrderSearchView(APIView):
     def post(self, request):
