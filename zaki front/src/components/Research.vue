@@ -23,6 +23,7 @@
       <ul>
         <li v-for="(result, index) in filteredResults" :key="index" @click="selectItem(result)">
           {{ result }}
+          <i class="ri-shopping-cart-2-line"></i>
         </li>
       </ul>
     </div>
@@ -38,9 +39,16 @@
 <script>
 import { ref } from 'vue';
 import { categoriesData } from '@/data/categoriesData'; // Adjust the import path as needed
+import { EventBus } from '@/data/eventBus';
+
 
 export default {
   name: 'Research',
+  data() {
+    return {
+      clickedItems: [],
+    };
+  },
   setup() {
     const searchQuery = ref('');
     const researchResults = ref(
@@ -89,6 +97,12 @@ export default {
       selectItem
     };
   },
+  methods: {
+    logItem(item){
+      this.clickedItems.push(item);
+      EventBus.emit('add-to-cart', item)
+    }
+  }
 };
 </script>
 
@@ -161,7 +175,16 @@ input:focus{
 
 .result__box li {
   padding: 0.5rem 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #eaeaea;
+}
+
+li i{
+  font-size: 1.2rem;
+  color: #058C42;
+  font-weight: 700;
 }
 
 .result__box li:last-child {

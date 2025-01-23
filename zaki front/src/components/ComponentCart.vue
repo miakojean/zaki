@@ -19,14 +19,14 @@
                 </div>
                 <div class="line" v-show="step>2"></div>
                 <div class="step" v-show="step>2">
-                    <div class="circle">3</div>
+                    <div class="circle"><i class="ri-check-double-line"></i></div>
                     <div class="label">Étape 3</div>
                 </div>
             </div>
 
             <button @click="closeModal" class="close-btn">X</button>
             <h3 v-if="step===1">Votre Panier</h3>
-            <p v-if="itemLength <= 0"> Panier vide, ajouter des éléments.</p>
+            <p v-if="itemLength <= 0 && step <=3"> Panier vide, ajouter des éléments.</p>
             <h3 v-if="step===2"> Vos informations de livraison</h3>
 
             <div class="cart-items" v-if="step === 1">
@@ -158,6 +158,7 @@ export default {
     },
 
     created() {
+        this.loadCartItems();
         EventBus.on('add-to-cart', this.addToCart);
     },
     beforeDestroy () {
@@ -198,8 +199,15 @@ export default {
         
         loadCartItems() {
             const savedCartItems = localStorage.getItem('cartItems');
-            if (savedCartItems) {
-                this.cartItems = JSON.parse(savedCartItems);
+            try {
+                this.cartItems = savedCartItems ? JSON.parse(savedCartItems) : [];
+                if (!Array.isArray(this.cartItems)) {
+                    throw new Error("Invalid cartItems format");
+                }
+            } catch (error) {
+                console.error("Erreur lors du chargement des articles du panier :", error);
+                this.cartItems = [];
+                localStorage.removeItem('cartItems'); // Nettoyez les données corrompues
             }
         },
 

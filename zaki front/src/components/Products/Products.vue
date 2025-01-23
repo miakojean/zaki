@@ -142,6 +142,7 @@ ul{
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  white-space: nowrap;
   width: 100%;
 }
 

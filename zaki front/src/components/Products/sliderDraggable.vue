@@ -90,6 +90,12 @@ li{
   cursor: pointer;
 }
 
+i{
+  color: #058C42;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
 a{
   text-decoration: none;
   color: #f3f3f3;
