@@ -97,11 +97,18 @@ class OrderSearchView(APIView):
     def post(self, request):
         serializer = OrderSearchSerializer(data=request.data)
         if serializer.is_valid():
-            # Effectuer la recherche
+            # Effectuer la recherche et obtenir un QuerySet
             results = serializer.search()
-            if results.exists():
-                # Retourner les résultats
+
+            if isinstance(results, list):  # Si `results` est une liste
+                if results:  # Vérifie si la liste n'est pas vide
+                    return Response(results, status=status.HTTP_200_OK)
+            elif results.exists():  # Si `results` est un QuerySet
                 data = OrderSerializer(results, many=True).data
                 return Response(data, status=status.HTTP_200_OK)
-            return Response({"message": "Numero de commande ou nom incorrect"}, status=status.HTTP_404_NOT_FOUND)
+            else:
+                return Response(
+                    {"message": "Numéro de commande ou nom incorrect"},
+                    status=status.HTTP_404_NOT_FOUND
+                )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

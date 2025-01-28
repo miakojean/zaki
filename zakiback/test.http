@@ -4,18 +4,18 @@ Content-Type: application/json
 
 
     {
-        "user_name": "Antoinette",
+        "user_name": "Boris",
         "status": "pending",
         "paiement_method": "Orange Money",
         "total_price": "7700.00",
         "items": [
         {
-            "product": 1,
+            "product": 3,
             "quantity": 5,
             "total_price": "3500.00"
         },
         {
-            "product": 2,
+            "product": 6,
             "quantity": 6,
             "total_price": "4200.00"
         }

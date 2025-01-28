@@ -1,21 +1,19 @@
 <template>
 
-    <!--<div class="card"> -->
-    <!-- <button type="button" class="dismiss">x</button>  -->
-    <div class="header"> 
-        <div class="image">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#000000" d="M20 7L9.00004 18L3.99994 13"></path> </g></svg>
-        </div> 
-        <div class="content">
-            <span class="title">{{title}}</span> 
-            <p class="message">{{ message }}</p> 
-            </div> 
-                <div class="actions">
-                    <button type="button" class="history">{{ details }}</button> 
-                    <button type="button" class="track">Suivre</button> 
-                </div> 
-            </div> 
-    <!-- </div>-->
+  <div class="header"> 
+    <div class="image">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#000000" d="M20 7L9.00004 18L3.99994 13"></path> </g></svg>
+    </div> 
+    <div class="content">
+      <span class="title">{{title}}</span> 
+      <p class="message">{{ message }} <span class="warning">{{ warning }}</span> </p>
+      <span class="title">{{ invoice }}</span>
+    </div> 
+    <div class="actions">
+        <button type="button" class="history"><router-link to="/Order">Ma commande</router-link></button> 
+        <button type="button" class="track">Suivre</button> 
+    </div> 
+  </div> 
 
 </template>
 
@@ -34,6 +32,14 @@ export default {
     details:{
       type: String,
       required: true,
+    },
+    invoice:{
+      type:String,
+      required: false
+    },
+    warning:{
+      type:String,
+      required: true
     }
   }
 
@@ -133,7 +139,7 @@ export default {
   margin: 0.75rem 1rem;
 }
 
-.history {
+.history a{
   display: inline-flex;
   padding: 0.5rem 1rem;
   background-color: #1aa06d;
@@ -162,6 +168,10 @@ export default {
   border: 1px solid #D1D5DB;
   background-color: #fff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.warning{
+  color: #ee0d0d;
 }
 
 @keyframes animate {

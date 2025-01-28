@@ -26,7 +26,7 @@
 
             <button @click="closeModal" class="close-btn">X</button>
             <h3 v-if="step===1">Votre Panier</h3>
-            <p v-if="itemLength <= 0 && step <=3"> Panier vide, ajouter des éléments.</p>
+            <p v-if="itemLength <= 0 && step !=3 "> Panier vide, ajouter des éléments.</p>
             <h3 v-if="step===2"> Vos informations de livraison</h3>
 
             <div class="cart-items" v-if="step === 1">
@@ -85,8 +85,10 @@
             <div class="cart-items" v-if="step === 3">
                 <DonePop 
                     title="Commande validée"
-                    message="Merci pour votre achat. Votre colis sera livré dans un délai de 2 jours après votre achat"
+                    message="Merci pour votre achat."
+                    warning="Ci-dessous le numéro de votre facture"
                     details="Ma commande"
+                    :invoice="invoiceNumber"
                 />
 
             </div>
@@ -133,6 +135,7 @@ export default {
         number: null,
         delivery_local: "",
         paiement_method: " A la livraison",
+        invoiceNumber: null
     }
     },
     components:{
@@ -231,8 +234,10 @@ export default {
         // Construction du JSON
         const order = {
             user_name: this.user_name || null, // Fournir un nom si user_id est absent
-            status: "pending",
+            status: "pending", 
             paiement_method: this.paiement_method,
+            number: this.number,
+            delivery: this.delivery_local,
             total_price: parseFloat(this.totalPrice), // Convertir en nombre
             items: this.cartItems.map(item => ({
                 product: item.id, // Assurez-vous que `item.id` existe
@@ -250,7 +255,14 @@ export default {
                     // "Authorization": `Bearer ${token}`
                 },
             });
-            console.log("Commande créée avec succès :", response.data);
+            
+            const invoiceNumber = response.data["numero de commande"]; // Extraction du numéro de commande
+            
+            // Affichage ou stockage du numéro de facture
+            this.invoiceNumber = invoiceNumber; // Sauvegarde dans une variable réactive
+
+
+            console.log("Commande créée avec succès :", response.data, this.invoiceNumber);
             this.cartItems = []; // Vider le panier après une commande réussie
             this.saveCartItems(); // Mettre à jour le stockage local
             this.step = this.maxstep; // Afficher le message de confirmation

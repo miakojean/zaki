@@ -4,9 +4,9 @@ export const categoriesData = {
         r_name:'céréales',
         image: new URL('@/assets/categories/cereals.webp', import.meta.url).href,
         description: 'Riz, maïs, mil, sorgho, etc.',
-        items: [ {id : 1, name : 'Riz', price : 700}, {id:2, name : 'Maïs', price : 700}, {id : 3, name : 'Mil', price : 700},
-                 {id: 4, name : 'Sorgho', price : 700}, {id: 5, name : 'Blé', price : 700}, {id : 6, name : 'Avoine', price : 700}, 
-                 {id : 7, name : 'Orge', price : 700} , {id : 8, name : 'Fonio', price : 700}]
+        items: [ {id : 1, name : 'Riz', price : 700}, {id:2, name : 'Maïs', price : 700}, {id : 6, name : 'Mil', price : 700},
+                 {id: 3, name : 'Sorgho', price : 700}, {id: 7, name : 'Blé', price : 700}, {id : 8, name : 'Avoine', price : 700}, 
+                 {id : 9, name : 'Orge', price : 700} , {id : 10, name : 'Fonio', price : 700}]
     },
     'fruits': {
         name: 'fruits',

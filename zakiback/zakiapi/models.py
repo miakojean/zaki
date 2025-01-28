@@ -31,7 +31,7 @@ class Order(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     number = models.CharField(blank=True, max_length=20)
-    delivery = models.CharField(max_length=100, blank=True)
+    delivery = models.CharField(max_length=100, blank=False)
     status = models.CharField(
         max_length=20,
         choices=[('pending', 'Pending'), ('completed', 'Completed'), ('cancelled', 'Cancelled')],
@@ -72,7 +72,8 @@ class OrderItem(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def save(self, *args, **kwargs):
-        self.total_price = self.product.price * self.quantity
+        if self.product:
+            self.total_price = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):

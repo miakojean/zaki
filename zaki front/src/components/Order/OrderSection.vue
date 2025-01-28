@@ -37,11 +37,12 @@
             <div class="custom-divider"></div>
             
             <div class="clients__info" v-for="order in results" :key="order.invoice_number">
-              <h3>Vos produits</h3>
+              <h3>Votre panier</h3>
               <ul>
                 <li v-for="item in order.items" :key="item.product">
                   <div class="products__info">
-                    <p>Produits: {{ item.product }}</p>
+                    <div class="custom-divider-items"></div>
+                    <p>Produit: {{ item.product_name }}</p>
                     <p>Quantité: {{ item.quantity }}</p>
                     <p>Prix: {{ item.total_price }}</p>
                   </div>
@@ -104,6 +105,7 @@ export default {
           invoice_number: this.searchCriteria, // Envoyer le critère de recherche
         });
         this.results = response.data; // Assigner les résultats retournés par l'API
+        console.log(this.results)
       } catch (err) {
         // Gérer les erreurs
         this.error =
@@ -122,6 +124,13 @@ export default {
 .custom-divider {
   width: 100%; /* La ligne occupe toute la largeur */
   height: 2px; /* Épaisseur de la ligne */
+  background: linear-gradient(to right, #345511, #6c757d); /* Dégradé pour un effet stylé */
+  margin: 1rem 0; /* Espace autour de la ligne */
+}
+
+.custom-divider-items {
+  width: 100%; /* La ligne occupe toute la largeur */
+  height: 1px; /* Épaisseur de la ligne */
   background: linear-gradient(to right, #345511, #6c757d); /* Dégradé pour un effet stylé */
   margin: 1rem 0; /* Espace autour de la ligne */
 }
@@ -164,9 +173,7 @@ header{
 }
 
 .research__box {
-  position: relative;
   width: 100%;
-  max-width: 650px;
   display: flex;
   justify-content: center;
   padding: 0.3rem;
@@ -174,6 +181,11 @@ header{
   border-radius: 1rem;
 
 }
+
+.results__box{
+  width: 100%;
+}
+
 
 input {
   width: 90%;
@@ -229,7 +241,9 @@ ul{
 
 .products__info{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 span{
@@ -268,6 +282,10 @@ span{
     max-width: 500px;
     border-radius: 1rem;
   }
+
+  .results__box{
+    width: 100%;
+  }
 }
 
 @media (min-width: 1920px) {
@@ -292,6 +310,10 @@ span{
     max-height: 700px;
     max-width: 700px;
     border-radius: 1rem;
+  }
+  .results__box, .research__box{
+    width: 100%;
+    max-width: 650px;
   }
 }
 </style>
