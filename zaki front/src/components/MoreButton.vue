@@ -13,8 +13,9 @@ export default {
       default: "Découvrir" // Texte par défaut
     },
     category: {
-      type: String,
-      required: false, // La catégorie est obligatoire pour construire la route dynamique
+    type: String,
+    required: false,
+    default: "all" // Catégorie par défaut
     },
   },
   

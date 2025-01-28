@@ -5,6 +5,7 @@ import LoginView from '@/views/LoginView.vue';
 import Registration from '@/views/Registration.vue';
 import Products from '@/components/Products/Products.vue';
 import OrderSection from '@/components/Order/OrderSection.vue';
+import Newsletter from '@/views/Newsletter.vue';
 
 const routes = [
     {
@@ -28,8 +29,9 @@ const routes = [
         component: OrderSection,
     },
     {
-        path: '/Basket',
-        name: 'Panier'
+        path: '/Newsletter',
+        name: 'Newsletter',
+        component:Newsletter,
     },
     {
         path: '/Login',

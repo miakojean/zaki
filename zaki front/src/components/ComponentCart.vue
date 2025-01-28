@@ -86,7 +86,7 @@
                 <DonePop 
                     title="Commande validée"
                     message="Merci pour votre achat."
-                    warning="Ci-dessous le numéro de votre facture"
+                    warning="Ci-dessous le numéro de votre facture, elle sera utilisée pour suivre votre commande."
                     details="Ma commande"
                     :invoice="invoiceNumber"
                 />
@@ -98,7 +98,7 @@
             
             </div>
 
-            <MoreButton v-if="step === 1 && itemLength > 0"
+            <OrderButton v-if="step === 1 && itemLength > 0"
             label="Poursuivre"
             @click="nextStep"
             />
@@ -122,6 +122,7 @@ import axios from "axios";
 import SelecTools from './tools/selecTools.vue';
 import DonePop from './Order/DonePop.vue';
 import Stepper from './tools/stepper.vue';
+import OrderButton from './Order/orderButton.vue';
 
 export default {
     data() {
@@ -145,7 +146,8 @@ export default {
         MoreButton,
         SelecTools,
         DonePop,
-        Stepper
+        Stepper,
+        OrderButton
     },
     computed: {
         totalPrice() {

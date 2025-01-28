@@ -72,7 +72,8 @@ label {
     border: 1px solid gray;
     border-radius: 1rem;
     gap: 1rem;
-    max-width: 400px;
+    width: 100%;
+    max-width: 600px;
 }
 
 input{
@@ -107,6 +108,17 @@ label i{
 }
 
 @media (min-width: 1024px) {
+    .Newsletter__Container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-content: center;
+    }
+    
+
+}
+
+@media (min-width: 1920px){
     .Newsletter__Container{
         display: grid;
         grid-template-columns: 1fr 1fr;

@@ -27,14 +27,14 @@
                 <MoreButton :route="'/Product'" />
             </div>
             <div class="cards">
-                <h3>Produits transformés</h3>
-                <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
-                <p>Attiéké, huile rouge, Djoumgblé, etc.</p>
+                <h3>Légumineuses</h3>
+                <img class="Pic" src="@/assets/categories/legumineuses.webp" alt="cereales" />
+                <p>Lentilles, Haricots, Haricots blancs, Pois chiches, etc.</p>
                 <MoreButton :route="'/Product'" />
             </div>
             <div class="cards">
                 <h3>Autres produits</h3>
-                <img class="Pic" src="@/assets/categories/cereales.jpg" alt="cereales" />
+                <img class="Pic" src="@/assets/categories/welcome.webp" alt="cereales" />
                 <p>Découvrez tous nos produits ici.</p>
                 <MoreButton label = "Tous nos produits" :route="'/Product'"/>
             </div>
@@ -158,6 +158,7 @@ section{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
+        width: 100%;
     }
     .Pic{
         background-size: cover;
@@ -177,12 +178,12 @@ section{
 
 @media (min-width: 1920px) {
     .section__header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
     }
     .card__container{
         padding: 1rem;
@@ -192,8 +193,8 @@ section{
     }
     .Pic{
         background-size: cover;
-        height: 400px;
-        width: 400px;
+        height: 320px;
+        width: 320px;
         cursor: pointer;
     }
     .cards{

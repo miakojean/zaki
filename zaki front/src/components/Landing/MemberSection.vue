@@ -6,7 +6,7 @@
                 Mettez-vous en ligne pour accroitre votre visibilité.
             </h3>
         </header>
-        <div class="custom-head-divider"></div>
+
         <div class="card___container">
             <div class="cards">
                 <img class="Member__Pic" src="@/assets/categories/farmer2.webp" alt="cereales" />

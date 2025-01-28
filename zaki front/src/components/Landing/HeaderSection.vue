@@ -7,7 +7,7 @@
                 <p> 
                     Profitez d'une plateforme simple et rapide pour 
                     accéder aux meilleurs produits vivriers de Côte d'Ivoire. 
-                    Commandez, payez en ligne, et recevez vos produits directement chez vous.
+                    Commandez et recevez vos produits directement chez vous.
                 </p>
                 <Research />
             </div>
@@ -38,8 +38,8 @@ export default {
 
 .header__pic{
     background-size: cover;
-    height: 240px;
-    width: 240px;
+    height: 400px;
+    width: 400px;
     cursor: pointer;
     border-radius: 1rem;
 }
