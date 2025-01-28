@@ -1,7 +1,7 @@
 <template>
   <div class="order__section">
     <NavBar />
-    <section class="order">
+    <section class="order" >
 
         <div class="pictures">
           <img class="Pic" src="@/assets/famer1.webp" alt="agriculteurs" />
@@ -160,7 +160,6 @@ export default {
 
 .order__section{
   padding: 1rem 0 0 0;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -179,7 +178,6 @@ header{
   padding: 0.3rem;
   border: 1px solid #ccc;
   border-radius: 1rem;
-
 }
 
 .results__box{
@@ -271,6 +269,8 @@ span{
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 2rem;
+    height: auto;
+    min-height: 100vh;
   }
 
   .pictures{
